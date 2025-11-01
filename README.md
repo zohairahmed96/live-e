@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # liv_e
 
 A new Flutter project.
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# live-e
+An app that provides you life assisstant, care companion, a safety tool , a social and a health planner
+>>>>>>> 9b62e5789c8c98a133408a62891d35a84491a3ac
