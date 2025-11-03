@@ -6,4 +6,7 @@ class AppRoutes {
   static const features = '/features';
   static const privacy = '/privacy';
   static const home = '/home'; // TODO
+  static const login = '/login';
+  static const signup = '/signup';
+  static const resetPassword = '/reset-password';
 }
