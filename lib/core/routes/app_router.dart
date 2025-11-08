@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:liv_e/ui/views/edit_profile_view.dart';
+import 'package:liv_e/ui/views/auth/login_view.dart';
+import 'package:liv_e/ui/views/auth/reset_password_view.dart';
+import 'package:liv_e/ui/views/profile/edit_profile_view.dart';
 import 'package:liv_e/ui/views/notifications_view.dart';
-import 'package:liv_e/ui/views/profile_setup_view.dart';
-import 'package:liv_e/ui/views/profile_view.dart' show ProfileView;
+import 'package:liv_e/ui/views/profile/profile_setup_view.dart';
+import 'package:liv_e/ui/views/profile/profile_view.dart' show ProfileView;
 import '../../ui/views/launch_view.dart';
 import '../../ui/views/logo_splash_view.dart';
-import '../../ui/views/onboarding_welcome_view.dart';
-import '../../ui/views/onboarding_features_view.dart';
-import '../../ui/views/onboarding_private_view.dart';
+import '../../ui/views/splash/onboarding_welcome_view.dart';
+import '../../ui/views/splash/onboarding_features_view.dart';
+import '../../ui/views/splash/onboarding_private_view.dart';
+import '../../ui/views/auth/signup_view.dart';
 import 'app_routes.dart';
 
 // import '../../ui/views/notifications/notifications_view.dart';
@@ -28,6 +31,12 @@ class AppRouter {
         );
       case AppRoutes.privacy:
         return MaterialPageRoute(builder: (_) => const OnboardingPrivateView());
+      case AppRoutes.login:
+        return MaterialPageRoute(builder: (_) => const LoginView());
+      case AppRoutes.signup:
+        return MaterialPageRoute(builder: (_) => const SignupView());
+      case AppRoutes.resetPassword:
+        return MaterialPageRoute(builder: (_) => const ResetPasswordView());
 
       case AppRoutes.editProfile:
         return MaterialPageRoute(builder: (_) => const EditProfileView());

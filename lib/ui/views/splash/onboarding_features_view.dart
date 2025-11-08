@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../core/utils/constants.dart';
-import '../../core/utils/image_paths.dart';
-import '../viewmodels/onboarding_vm.dart';
-import 'OnboardingTemplate.dart';
+import '../../../core/utils/constants.dart';
+import '../../../core/utils/image_paths.dart';
+import '../../viewmodels/onboarding_vm.dart';
+import '../OnboardingTemplate.dart';
 
 class OnboardingFeaturesView extends StatelessWidget {
   const OnboardingFeaturesView({super.key});
@@ -23,7 +23,8 @@ class OnboardingFeaturesView extends StatelessWidget {
       // SvgPicture.asset(ImagePaths.features, fit: BoxFit.contain),
       title: Constants.featuresTitle,
       subtitle: Constants.featuresSub,
-      onNext: () => vm.goProfile(context),
+      onNext: () => vm.goPrivacy(context),
+      // onNext: () => vm.goProfile(context),
       showCTA: true,
       index: 1,
     );

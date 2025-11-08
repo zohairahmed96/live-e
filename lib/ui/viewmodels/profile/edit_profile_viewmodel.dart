@@ -1,11 +1,10 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 // import 'package:image_picker/image_picker.dart';
 
 class EditProfileViewModel extends ChangeNotifier {
-  final nameCtrl  = TextEditingController(text: 'Jill Powell');
+  final nameCtrl = TextEditingController(text: 'Jill Powell');
   final emailCtrl = TextEditingController(text: 'ex@example.com');
-  final ageCtrl   = TextEditingController(text: '25');
+  final ageCtrl = TextEditingController(text: '25');
   final disabilityCtrl = TextEditingController(text: 'No');
 
   final formKey = GlobalKey<FormState>();
@@ -29,20 +28,26 @@ class EditProfileViewModel extends ChangeNotifier {
 
   Future<void> save(BuildContext context) async {
     if (!(formKey.currentState?.validate() ?? false)) return;
-    saving = true; notifyListeners();
+    saving = true;
+    notifyListeners();
 
     // TODO: call usecase/repository to persist profile
     await Future.delayed(const Duration(milliseconds: 800));
 
-    saving = false; notifyListeners();
-    ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text('Profile updated')));
+    saving = false;
+    notifyListeners();
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Profile updated')));
     Navigator.pop(context);
   }
 
   @override
   void dispose() {
-    nameCtrl.dispose(); emailCtrl.dispose(); ageCtrl.dispose(); disabilityCtrl.dispose();
+    nameCtrl.dispose();
+    emailCtrl.dispose();
+    ageCtrl.dispose();
+    disabilityCtrl.dispose();
     super.dispose();
   }
 }

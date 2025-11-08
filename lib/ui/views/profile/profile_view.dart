@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import 'package:liv_e/ui/components/gradient_button.dart';
-import 'package:liv_e/ui/viewmodels/profile_viewmodel.dart';
+import 'package:liv_e/ui/viewmodels/profile/profile_viewmodel.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -31,7 +31,10 @@ class _ProfileBody extends StatelessWidget {
         elevation: 0,
         backgroundColor: const Color(0xFFE8F3FF), // light blue like mock
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black87),
+          icon: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.black87,
+          ),
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
@@ -53,7 +56,6 @@ class _ProfileBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 3.2.h), // top space under header
-
               // Avatar
               Container(
                 width: 13.5.h,
@@ -62,7 +64,11 @@ class _ProfileBody extends StatelessWidget {
                   color: Color(0xFFE8F1FF),
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(Icons.person, size: 56, color: Colors.black38),
+                child: const Icon(
+                  Icons.person,
+                  size: 56,
+                  color: Colors.black38,
+                ),
               ),
 
               SizedBox(height: 3.6.h),
@@ -93,10 +99,10 @@ class _ProfileBody extends StatelessWidget {
                   label: 'Edit Profile',
                   // onPressed: () => vm.editProfile(context),
                   expand: false,
-                  height: 5.2.h, onPressed: () { 
+                  height: 5.2.h,
+                  onPressed: () {
                     Navigator.pushNamed(context, AppRoutes.editProfile);
-
-                   },
+                  },
                 ),
               ),
 
@@ -108,7 +114,11 @@ class _ProfileBody extends StatelessWidget {
                   padding: EdgeInsets.only(left: .4.w),
                   child: Text(
                     'Setting',
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 11.sp, color: const Color(0xFF0B101B)),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 11.sp,
+                      color: const Color(0xFF0B101B),
+                    ),
                   ),
                 ),
               ),
@@ -163,7 +173,6 @@ class _ProfileBody extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.pushNamed(context, AppRoutes.notifications);
-
                       },
                       child: Container(
                         height: 7.h,
@@ -237,10 +246,14 @@ class _ProfileBody extends StatelessWidget {
     return Container(
       width: 36,
       height: 36,
-      decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(8)),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Icon(icon, color: fg, size: 20),
     );
   }
 
-  Widget _thinDivider() => const Divider(height: 1, thickness: .8, color: Color(0xFFF1F2F4));
+  Widget _thinDivider() =>
+      const Divider(height: 1, thickness: .8, color: Color(0xFFF1F2F4));
 }

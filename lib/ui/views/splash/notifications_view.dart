@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liv_e/ui/components/notification_tile.dart';
-import 'package:liv_e/ui/viewmodels/notifications_viewmodel.dart';
+import 'package:liv_e/ui/viewmodels/profile/notifications_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -32,12 +32,21 @@ class _NotificationsBody extends StatelessWidget {
         elevation: 0,
         backgroundColor: const Color(0xFFE8F3FF), // light blue header like mock
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black87),
+          icon: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.black87,
+          ),
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text('Notification',
-            style: TextStyle(fontSize: 14.5.sp, fontWeight: FontWeight.w700, color: const Color(0xFF0B101B))),
+        title: Text(
+          'Notification',
+          style: TextStyle(
+            fontSize: 14.5.sp,
+            fontWeight: FontWeight.w700,
+            color: const Color(0xFF0B101B),
+          ),
+        ),
       ),
 
       body: SafeArea(
@@ -53,8 +62,14 @@ class _NotificationsBody extends StatelessWidget {
               ..._buildList(vm.recent),
 
               SizedBox(height: 2.6.h),
-              Text('Last 30 Days',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 11.sp, color: const Color(0xFF0B101B))),
+              Text(
+                'Last 30 Days',
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 11.sp,
+                  color: const Color(0xFF0B101B),
+                ),
+              ),
               SizedBox(height: 1.2.h),
 
               // Older list
@@ -73,7 +88,7 @@ class _NotificationsBody extends StatelessWidget {
       for (int i = 0; i < items.length; i++) ...[
         NotificationTile(item: items[i]),
         if (i != items.length - 1) SizedBox(height: 1.2.h),
-      ]
+      ],
     ];
   }
 }

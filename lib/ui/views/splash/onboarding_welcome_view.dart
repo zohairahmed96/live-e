@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:liv_e/ui/views/OnboardingTemplate.dart';
-import '../../core/utils/constants.dart';
-import '../../core/utils/image_paths.dart';
-import '../viewmodels/onboarding_vm.dart';
+import '../../../core/utils/constants.dart';
+import '../../../core/utils/image_paths.dart';
+import '../../viewmodels/onboarding_vm.dart';
 
 class OnboardingWelcomeView extends StatelessWidget {
   const OnboardingWelcomeView({super.key});

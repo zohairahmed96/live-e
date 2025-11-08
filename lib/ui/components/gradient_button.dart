@@ -4,10 +4,10 @@ import 'package:sizer/sizer.dart';
 
 class GradientButton extends StatelessWidget {
   final String label;
-  final VoidCallback? onPressed;
+  final VoidCallback onPressed;
   final bool loading;
-  final bool expand;
-  final double? height;
+  final bool expand; // full width by default
+  final double? height; // optional custom height
   final BorderRadius? radius;
 
   const GradientButton({
@@ -35,8 +35,9 @@ class GradientButton extends StatelessWidget {
     final button = ClipRRect(
       borderRadius: br,
       child: Material(
-        color: Colors.transparent,
+        color: Colors.transparent, // allow gradient to show
         child: Ink(
+          // Ink + decoration = ripple on gradient
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.centerLeft,

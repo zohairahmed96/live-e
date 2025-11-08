@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:liv_e/ui/components/gradient_button.dart';
-import 'package:liv_e/ui/viewmodels/edit_profile_viewmodel.dart';
+import 'package:liv_e/ui/viewmodels/profile/edit_profile_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -26,7 +26,10 @@ class _EditBody extends StatelessWidget {
   InputDecoration _blueFill(String label) {
     return InputDecoration(
       labelText: label,
-      labelStyle: const TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
+      labelStyle: const TextStyle(
+        color: Colors.black87,
+        fontWeight: FontWeight.w600,
+      ),
       filled: true,
       fillColor: const Color(0xFFEAF6FF), // light blue fill like mock
       hintStyle: const TextStyle(color: Colors.black45),
@@ -52,12 +55,21 @@ class _EditBody extends StatelessWidget {
         backgroundColor: const Color(0xFFE8F3FF), // header light blue
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black87),
+          icon: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.black87,
+          ),
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text('Edit Profile',
-            style: TextStyle(fontSize: 14.5.sp, fontWeight: FontWeight.w700, color: const Color(0xFF0B101B))),
+        title: Text(
+          'Edit Profile',
+          style: TextStyle(
+            fontSize: 14.5.sp,
+            fontWeight: FontWeight.w700,
+            color: const Color(0xFF0B101B),
+          ),
+        ),
       ),
       body: SafeArea(
         top: false,
@@ -82,7 +94,11 @@ class _EditBody extends StatelessWidget {
                       ),
                       clipBehavior: Clip.antiAlias,
                       child: vm.photoPath == null
-                          ? const Icon(Icons.person, size: 56, color: Color(0xFF2380C4))
+                          ? const Icon(
+                              Icons.person,
+                              size: 56,
+                              color: Color(0xFF2380C4),
+                            )
                           : Image.file(File(vm.photoPath!), fit: BoxFit.cover),
                     ),
                     GestureDetector(
@@ -94,7 +110,11 @@ class _EditBody extends StatelessWidget {
                           color: Color(0xFF2380C4),
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(Icons.camera_alt_rounded, color: Colors.white, size: 18),
+                        child: const Icon(
+                          Icons.camera_alt_rounded,
+                          color: Colors.white,
+                          size: 18,
+                        ),
                       ),
                     ),
                   ],
@@ -103,18 +123,33 @@ class _EditBody extends StatelessWidget {
                 SizedBox(height: 1.6.h),
 
                 // Name + email preview (bold + grey)
-                Text('Jill Powell',
-                    style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w700, color: const Color(0xFF0B101B))),
+                Text(
+                  'Jill Powell',
+                  style: TextStyle(
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w700,
+                    color: const Color(0xFF0B101B),
+                  ),
+                ),
                 SizedBox(height: .6.h),
-                Text('ex@example.com', style: TextStyle(color: Colors.black45, fontSize: 10.sp)),
+                Text(
+                  'ex@example.com',
+                  style: TextStyle(color: Colors.black45, fontSize: 10.sp),
+                ),
 
                 SizedBox(height: 2.2.h),
 
                 // Fields (light blue filled, rounded)
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Full Name',
-                      style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 10.sp)),
+                  child: Text(
+                    'Full Name',
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 10.sp,
+                    ),
+                  ),
                 ),
                 SizedBox(height: .6.h),
                 TextFormField(
@@ -126,8 +161,14 @@ class _EditBody extends StatelessWidget {
 
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Email Address',
-                      style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 10.sp)),
+                  child: Text(
+                    'Email Address',
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 10.sp,
+                    ),
+                  ),
                 ),
                 SizedBox(height: .6.h),
                 TextFormField(
@@ -140,8 +181,14 @@ class _EditBody extends StatelessWidget {
 
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Age',
-                      style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 10.sp)),
+                  child: Text(
+                    'Age',
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 10.sp,
+                    ),
+                  ),
                 ),
                 SizedBox(height: .6.h),
                 TextFormField(
@@ -159,8 +206,14 @@ class _EditBody extends StatelessWidget {
 
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Disability',
-                      style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 10.sp)),
+                  child: Text(
+                    'Disability',
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 10.sp,
+                    ),
+                  ),
                 ),
                 SizedBox(height: .6.h),
                 TextFormField(

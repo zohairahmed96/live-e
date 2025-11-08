@@ -11,7 +11,6 @@ class OnboardingVM {
       Navigator.pushReplacementNamed(context, AppRoutes.profile);
 
   void finish(BuildContext context) {
-    // TODO: route to real home
     Navigator.pushReplacementNamed(context, AppRoutes.home);
   }
 }
