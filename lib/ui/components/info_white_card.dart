@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/image_paths.dart';
 import 'package:sizer/sizer.dart';
 
-class ActionBlueCard extends StatelessWidget {
-  final String? icon;
-  final Widget? leading;
+class InfoWhiteCard extends StatelessWidget {
+  final String leading;
   final String title;
   final String subtitle;
   final VoidCallback? onTap;
 
-  const ActionBlueCard({
+  const InfoWhiteCard({
     super.key,
-    this.icon,
-    this.leading,
+    required this.leading,
     required this.title,
     required this.subtitle,
     this.onTap,
@@ -19,51 +18,50 @@ class ActionBlueCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Color blue = Color(0xFF3CA4DC); // brand-ish mid blue
     return InkWell(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(12),
       onTap: onTap,
       child: Ink(
-        height: 12.06.h,
+        height: 9.2.h,
         decoration: BoxDecoration(
-          color: blue,
-          borderRadius: BorderRadius.circular(14),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: const Color(0x14000000)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12.withOpacity(.05),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 3.6.w),
+          padding: EdgeInsets.symmetric(horizontal: 3.2.w),
           child: Row(
             children: [
-              // left icon in soft square
               Container(
-                width: 30.6.w,
-                height: 9.60.h,
+                width: 52,
+                height: 52,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(.15),
-                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xFFEAF6FF),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Center(
-                  child:
-                      leading ??
-                      Image.asset(
-                        icon ?? "assets/images/carIcon.png",
-                        color: Colors.white,
-                        width: 17.8.w,
-                        height: 6.59.h,
-                      ),
+                  child: Image.asset(
+                    leading,
+                    width: 28,
+                    height: 28,
+                    fit: BoxFit.contain,
+                  ),
                 ),
-                // Icon(icon as IconData?, color: Colors.white, size: 24),
               ),
-              SizedBox(width: 3.8.w),
-
-              // title + subtitle
+              SizedBox(width: 3.6.w),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
                           child: Text(
@@ -71,16 +69,16 @@ class ActionBlueCard extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              color: Colors.white,
                               fontWeight: FontWeight.w700,
                               fontSize: 11.sp,
+                              color: const Color(0xFF0B101B),
                             ),
                           ),
                         ),
-                        Icon(
+                        const Icon(
                           Icons.chevron_right_rounded,
-                          color: Colors.white,
-                          size: 22,
+                          color: Color(0xFF3B83E6),
+                          size: 20,
                         ),
                       ],
                     ),
@@ -90,7 +88,7 @@ class ActionBlueCard extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        color: Colors.white.withOpacity(.90),
+                        color: Colors.black45,
                         fontSize: 9.sp,
                         height: 1.25,
                       ),

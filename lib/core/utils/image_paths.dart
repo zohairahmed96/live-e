@@ -7,5 +7,7 @@ class ImagePaths {
   static const privateSecure = '${base}privatesecure.png';
   static const carIcon = '${base}carIcon.png';
   static const busIcon = '${base}busIcon.png';
+  static const reminder = '${base}reminder.png';
+  static const spending = '${base}spending.png';
   // static const features2 = '${base}features2.jpg';
 }

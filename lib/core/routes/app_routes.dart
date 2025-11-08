@@ -14,5 +14,6 @@ class AppRoutes {
   static const signup = '/signup';
   static const resetPassword = '/reset-password';
   static const transport = '/transport';
+  static const financial = '/financial';
   // static const home = '/home'; // TODO
 }

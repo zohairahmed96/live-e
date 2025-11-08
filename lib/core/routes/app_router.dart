@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:liv_e/ui/views/auth/login_view.dart';
 import 'package:liv_e/ui/views/auth/reset_password_view.dart';
+import 'package:liv_e/ui/views/dashboard/financial_management_view.dart';
 import 'package:liv_e/ui/views/dashboard/transport_assistance_view.dart';
 import 'package:liv_e/ui/views/profile/edit_profile_view.dart';
 import 'package:liv_e/ui/views/splash/notifications_view.dart';
@@ -50,6 +51,10 @@ class AppRouter {
       case AppRoutes.transport:
         return MaterialPageRoute(
           builder: (_) => const TransportAssistanceView(),
+        );
+      case AppRoutes.financial:
+        return MaterialPageRoute(
+          builder: (_) => const FinancialManagementView(),
         );
     }
     return null;
