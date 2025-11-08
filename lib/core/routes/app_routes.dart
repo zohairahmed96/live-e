@@ -9,4 +9,5 @@ class AppRoutes {
   static const login = '/login';
   static const signup = '/signup';
   static const resetPassword = '/reset-password';
+  static const profileSetup = '/profile-setup';
 }
