@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../../core/utils/constants.dart';
 import '../../../core/utils/image_paths.dart';
 import '../../viewmodels/onboarding_vm.dart';
@@ -19,7 +20,7 @@ class OnboardingFeaturesView extends StatelessWidget {
     //   onNext: () => vm.goPrivacy(context),
     // );
     OnboardingTemplate(
-      image: ImagePaths.features2,
+      image: ImagePaths.keyFeatures,
       // SvgPicture.asset(ImagePaths.features, fit: BoxFit.contain),
       title: Constants.featuresTitle,
       subtitle: Constants.featuresSub,

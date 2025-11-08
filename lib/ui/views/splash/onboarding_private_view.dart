@@ -12,7 +12,7 @@ class OnboardingPrivateView extends StatelessWidget {
   Widget build(BuildContext context) {
     // final vm = OnboardingVM();
     return OnboardingTemplate(
-      image: ImagePaths.private,
+      image: ImagePaths.privateSecure,
       title: Constants.privacyTitle,
       subtitle: Constants.privacySub,
       index: 2,
