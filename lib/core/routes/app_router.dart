@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:liv_e/ui/views/auth/login_view.dart';
 import 'package:liv_e/ui/views/auth/reset_password_view.dart';
 import 'package:liv_e/ui/views/profile/edit_profile_view.dart';
-import 'package:liv_e/ui/views/notifications_view.dart';
+import 'package:liv_e/ui/views/splash/notifications_view.dart';
 import 'package:liv_e/ui/views/profile/profile_setup_view.dart';
 import 'package:liv_e/ui/views/profile/profile_view.dart' show ProfileView;
 import '../../ui/views/launch_view.dart';
