@@ -1,3 +1,4 @@
+// lib/ui/components/gradient_button.dart
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -5,8 +6,8 @@ class GradientButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final bool loading;
-  final bool expand;           // full width by default
-  final double? height;        // optional custom height
+  final bool expand;
+  final double? height;
   final BorderRadius? radius;
 
   const GradientButton({
@@ -21,13 +22,21 @@ class GradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ✅ Safe height: use Sizer if ready else 48
+    double safeH;
+    try {
+      safeH = height ?? 6.2.h;
+    } catch (_) {
+      safeH = height ?? 48.0;
+    }
+
     final br = radius ?? BorderRadius.circular(30);
 
     final button = ClipRRect(
       borderRadius: br,
       child: Material(
-        color: Colors.transparent,              // allow gradient to show
-        child: Ink(                             // Ink + decoration = ripple on gradient
+        color: Colors.transparent,
+        child: Ink(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.centerLeft,
@@ -38,13 +47,15 @@ class GradientButton extends StatelessWidget {
           child: InkWell(
             onTap: (loading || onPressed == null) ? null : onPressed,
             child: SizedBox(
-              height: height ?? 6.2.h,
+              height: safeH,
               child: Center(
                 child: loading
                     ? const SizedBox(
-                        width: 22, height: 22,
+                        width: 22,
+                        height: 22,
                         child: CircularProgressIndicator(
-                          color: Colors.white, strokeWidth: 2,
+                          color: Colors.white,
+                          strokeWidth: 2,
                         ),
                       )
                     : Text(
@@ -52,8 +63,7 @@ class GradientButton extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
-                          fontSize: 12.5.sp,
-                          letterSpacing: .2,
+                          fontSize: 12.5.sp, // ok: evaluated inside build
                         ),
                       ),
               ),
@@ -63,8 +73,6 @@ class GradientButton extends StatelessWidget {
       ),
     );
 
-    if (!expand) return button;
-
-    return SizedBox(width: double.infinity, child: button);
+    return expand ? SizedBox(width: double.infinity, child: button) : button;
   }
 }

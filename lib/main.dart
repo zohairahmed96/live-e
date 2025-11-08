@@ -14,12 +14,14 @@ class LiveApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(
-      builder: (_, __, ___) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'LiV-E',
-        onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: AppRoutes.launch, // Screen 1
-      ),
+      builder: (_, __, ___) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'LiV-E',
+          onGenerateRoute: AppRouter.onGenerateRoute,
+          initialRoute: AppRoutes.launch, // Screen 1
+        );
+      },
     );
   }
 }
