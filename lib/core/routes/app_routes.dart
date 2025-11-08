@@ -9,5 +9,8 @@ class AppRoutes {
   static const login = '/login';
   static const signup = '/signup';
   static const resetPassword = '/reset-password';
-  static const profileSetup = '/profile-setup';
+  static const profile = '/profile';
+  static const editProfile = '/edit-profile';
+  static const notifications = '/notifications';
+  // static const home = '/home'; // TODO
 }

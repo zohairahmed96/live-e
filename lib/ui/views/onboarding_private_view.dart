@@ -18,6 +18,7 @@ class OnboardingPrivateView extends StatelessWidget {
       index: 2,
 
       onNext: () => Navigator.pushNamed(context, AppRoutes.login),
+      // onNext: () => vm.finish(context),
       showCTA: true, // shows "Get Started" full-width button
     );
   }

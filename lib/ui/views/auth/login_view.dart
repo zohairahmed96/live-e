@@ -104,7 +104,9 @@ class _LoginBody extends StatelessWidget {
                 GradientButton(
                   label: 'Log In',
                   loading: vm.loading,
-                  onPressed: () => vm.login(context),
+                  onPressed: () => {
+                    Navigator.pushNamed(context, AppRoutes.profile),
+                  },
                 ),
                 SizedBox(height: 2.6.h),
 
