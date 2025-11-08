@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:liv_e/ui/views/auth/login_view.dart';
 import 'package:liv_e/ui/views/auth/reset_password_view.dart';
+import 'package:liv_e/ui/views/dashboard/transport_assistance_view.dart';
 import 'package:liv_e/ui/views/profile/edit_profile_view.dart';
 import 'package:liv_e/ui/views/splash/notifications_view.dart';
 import 'package:liv_e/ui/views/profile/profile_setup_view.dart';
@@ -46,6 +47,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ProfileSetupView());
       case AppRoutes.notifications:
         return MaterialPageRoute(builder: (_) => const NotificationsView());
+      case AppRoutes.transport:
+        return MaterialPageRoute(
+          builder: (_) => const TransportAssistanceView(),
+        );
     }
     return null;
   }

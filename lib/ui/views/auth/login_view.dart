@@ -105,7 +105,7 @@ class _LoginBody extends StatelessWidget {
                   label: 'Log In',
                   loading: vm.loading,
                   onPressed: () => {
-                    Navigator.pushNamed(context, AppRoutes.profileSetup),
+                    Navigator.pushNamed(context, AppRoutes.transport),
                   },
                 ),
                 SizedBox(height: 2.6.h),
