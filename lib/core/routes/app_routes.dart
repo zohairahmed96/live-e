@@ -21,5 +21,6 @@ class AppRoutes {
   static const financial = '/financial';
   static const billReminders = '/bill-reminders';
   static const setReminder = '/set-reminder';
+  static const spendingOverview = '/spending-overview';
   // static const home = '/home'; // TODO
 }

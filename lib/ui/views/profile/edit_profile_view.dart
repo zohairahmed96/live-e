@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/routes/app_routes.dart';
 import 'package:liv_e/ui/components/gradient_button.dart';
 import 'package:liv_e/ui/viewmodels/profile/edit_profile_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -227,7 +228,10 @@ class _EditBody extends StatelessWidget {
                 GradientButton(
                   label: 'Save',
                   loading: vm.saving,
-                  onPressed: () => vm.save(context),
+                  onPressed: () => {
+                    Navigator.pushNamed(context, AppRoutes.spendingOverview),
+                  },
+                  // vm.save(context),
                 ),
 
                 SizedBox(height: 3.h),
