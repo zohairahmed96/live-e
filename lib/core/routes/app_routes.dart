@@ -15,5 +15,7 @@ class AppRoutes {
   static const resetPassword = '/reset-password';
   static const transport = '/transport';
   static const financial = '/financial';
+  static const billReminders = '/bill-reminders';
+  static const setReminder = '/set-reminder';
   // static const home = '/home'; // TODO
 }

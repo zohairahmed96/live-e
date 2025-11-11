@@ -9,6 +9,7 @@ class TextFieldCommon extends StatelessWidget {
   final Widget? prefixIcon;
   final bool readOnly;
   final VoidCallback? onTap;
+  final Color? fillColor;
 
   const TextFieldCommon({
     super.key,
@@ -20,6 +21,7 @@ class TextFieldCommon extends StatelessWidget {
     this.prefixIcon,
     this.readOnly = false,
     this.onTap,
+    this.fillColor,
   });
 
   @override
@@ -35,7 +37,7 @@ class TextFieldCommon extends StatelessWidget {
         hintText: hint,
         prefixIcon: prefixIcon,
         filled: true,
-        fillColor: Colors.white,
+        fillColor: fillColor ?? Colors.white,
         contentPadding: const EdgeInsets.symmetric(
           vertical: 14,
           horizontal: 16,
