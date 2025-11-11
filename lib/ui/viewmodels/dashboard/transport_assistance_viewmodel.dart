@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/routes/app_routes.dart';
 
 class TransportAssistanceViewModel extends ChangeNotifier {
   void callARide(BuildContext ctx) {
@@ -10,8 +11,6 @@ class TransportAssistanceViewModel extends ChangeNotifier {
 
   void publicTransport(BuildContext ctx) {
     // TODO: navigate to routes/schedules
-    ScaffoldMessenger.of(
-      ctx,
-    ).showSnackBar(const SnackBar(content: Text('Public Transport tapped')));
+    Navigator.pushNamed(ctx, AppRoutes.setReminder);
   }
 }

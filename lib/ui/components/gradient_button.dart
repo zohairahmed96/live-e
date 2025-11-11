@@ -9,6 +9,7 @@ class GradientButton extends StatelessWidget {
   final bool expand; // full width by default
   final double? height; // optional custom height
   final BorderRadius? radius;
+  final Gradient? gradient;
 
   const GradientButton({
     super.key,
@@ -18,6 +19,7 @@ class GradientButton extends StatelessWidget {
     this.expand = true,
     this.height,
     this.radius,
+    this.gradient,
   });
 
   @override
@@ -42,7 +44,7 @@ class GradientButton extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
-              colors: [Color(0xFF55B4FF), Color(0xFF2D6DD6)],
+              colors: [Color(0xFF3CA4DC), Color(0xFF334EA0)],
             ),
           ),
           child: InkWell(

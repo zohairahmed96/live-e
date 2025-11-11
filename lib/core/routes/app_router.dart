@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:liv_e/ui/views/auth/login_view.dart';
 import 'package:liv_e/ui/views/auth/reset_password_view.dart';
+import 'package:liv_e/ui/views/dashboard/bill_reminders_view.dart';
+import 'package:liv_e/ui/views/dashboard/set_reminder_view.dart';
 import 'package:liv_e/ui/views/dashboard/transport_assistance_view.dart';
 import 'package:liv_e/ui/views/profile/edit_profile_view.dart';
 import 'package:liv_e/ui/views/splash/notifications_view.dart';
@@ -51,6 +53,11 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const TransportAssistanceView(),
         );
+      case AppRoutes.billReminders:
+        return MaterialPageRoute(builder: (_) => const BillRemindersView());
+
+      case AppRoutes.setReminder:
+        return MaterialPageRoute(builder: (_) => const SetReminderView());
     }
     return null;
   }
