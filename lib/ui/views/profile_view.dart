@@ -94,7 +94,7 @@ class _ProfileBody extends StatelessWidget {
                   // onPressed: () => vm.editProfile(context),
                   expand: false,
                   height: 5.2.h, onPressed: () { 
-                    Navigator.pushNamed(context, AppRoutes.editProfile);
+                    Navigator.pushNamed(context, AppRoutes.dailyRoutine);
 
                    },
                 ),

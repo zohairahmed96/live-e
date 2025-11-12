@@ -8,5 +8,7 @@ class AppRoutes {
   static const profile = '/profile';
   static const editProfile = '/edit-profile'; 
   static const notifications = '/notifications';
+  static const String dailyRoutine = '/daily-routine';
+   static const String healthWellness = '/health-wellness';
   static const home = '/home'; // TODO
 }

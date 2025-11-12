@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/ui/views/daily_routine_view.dart';
 import 'package:liv_e/ui/views/edit_profile_view.dart';
+import 'package:liv_e/ui/views/health_wellness_view.dart';
 import 'package:liv_e/ui/views/notifications_view.dart';
 import 'package:liv_e/ui/views/profile_view.dart' show ProfileView;
 import '../../ui/views/launch_view.dart';
@@ -33,7 +35,12 @@ case AppRoutes.editProfile:
           return MaterialPageRoute(builder: (_) => const ProfileView());
           case AppRoutes.notifications:
             return MaterialPageRoute(builder: (_) => const NotificationsView());
+      case AppRoutes.dailyRoutine:
+        return MaterialPageRoute(builder: (_) => const DailyRoutineView());
+        case AppRoutes.healthWellness:
+  return MaterialPageRoute(builder: (_) => const HealthWellnessView());
     }
+    
     return null;
   }
 }

@@ -23,7 +23,7 @@ class OnboardingFeaturesView extends StatelessWidget {
       // SvgPicture.asset(ImagePaths.features, fit: BoxFit.contain),
       title: Constants.featuresTitle,
       subtitle: Constants.featuresSub,
-      onNext: () => vm.goProfile(context),
+      onNext: () => vm.goHealthWellness(context),
       showCTA: true,
       index: 1,
     );
