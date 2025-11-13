@@ -15,5 +15,11 @@ class OnboardingVM {
   void finish(BuildContext context) {
     // Navigator.pushReplacementNamed(context, AppRoutes.home);
     Navigator.pushNamed(context, AppRoutes.home);
+    Navigator.pushReplacementNamed(context, AppRoutes.profile);
   }
+
+  void goReminder(BuildContext context) =>
+      Navigator.pushReplacementNamed(context, AppRoutes.dailyRoutine);
+  void goHealthWellness(BuildContext context) =>
+      Navigator.pushReplacementNamed(context, AppRoutes.healthWellness);
 }

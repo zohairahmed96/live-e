@@ -143,7 +143,9 @@ class _LoginBody extends StatelessWidget {
                       ),
                     ),
                     SocialButton(
-                      onTap: () {}, // TODO Apple
+                      onTap: () {
+                        Navigator.pushNamed(context, AppRoutes.dailyRoutine);
+                      }, // TODO Apple
                       icon: const Icon(Icons.apple, size: 26),
                     ),
                     SocialButton(

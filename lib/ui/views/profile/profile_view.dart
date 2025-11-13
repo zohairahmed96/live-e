@@ -101,7 +101,7 @@ class _ProfileBody extends StatelessWidget {
                   expand: false,
                   height: 5.2.h,
                   onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.editProfile);
+                    Navigator.pushNamed(context, AppRoutes.dailyRoutine);
                   },
                 ),
               ),

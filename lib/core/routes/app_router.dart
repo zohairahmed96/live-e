@@ -9,7 +9,9 @@ import 'package:liv_e/ui/views/dashboard/transport_assistance_view.dart';
 import 'package:liv_e/ui/views/profile/edit_profile_view.dart';
 import 'package:liv_e/ui/views/splash/notifications_view.dart';
 import 'package:liv_e/ui/views/profile/profile_setup_view.dart';
-import 'package:liv_e/ui/views/profile/profile_view.dart' show ProfileView;
+import 'package:liv_e/ui/views/profile/profile_view.dart';
+import 'package:liv_e/ui/views/dashboard/daily_routine_view.dart';
+import 'package:liv_e/ui/views/dashboard/health_wellness_view.dart';
 import '../../ui/views/launch_view.dart';
 import '../../ui/views/logo_splash_view.dart';
 import '../../ui/views/splash/onboarding_welcome_view.dart';
@@ -67,7 +69,12 @@ class AppRouter {
 
       case AppRoutes.spendingOverview:
         return MaterialPageRoute(builder: (_) => const SpendingOverviewView());
+      case AppRoutes.dailyRoutine:
+        return MaterialPageRoute(builder: (_) => const DailyRoutineView());
+      case AppRoutes.healthWellness:
+        return MaterialPageRoute(builder: (_) => const HealthWellnessView());
     }
+
     return null;
   }
 }

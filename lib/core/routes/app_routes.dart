@@ -8,6 +8,8 @@ class AppRoutes {
 
   // onboarding ad login
   static const notifications = '/notifications';
+  static const String dailyRoutine = '/daily-routine';
+   static const String healthWellness = '/health-wellness';
   static const home = '/home'; // TODO
   static const login = '/login';
   static const signup = '/signup';
