@@ -9,7 +9,7 @@ class AppRoutes {
   // onboarding ad login
   static const notifications = '/notifications';
   static const String dailyRoutine = '/daily-routine';
-   static const String healthWellness = '/health-wellness';
+  static const String healthWellness = '/health-wellness';
   static const home = '/home'; // TODO
   static const login = '/login';
   static const signup = '/signup';
@@ -25,4 +25,8 @@ class AppRoutes {
   static const setReminder = '/set-reminder';
   static const spendingOverview = '/spending-overview';
   // static const home = '/home'; // TODO
+
+  // Settings
+  static const settings = '/settings';
+  static const privacyPolicy = '/privacy-policy';
 }

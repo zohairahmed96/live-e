@@ -6,7 +6,8 @@ class OnboardingVM {
       Navigator.pushNamed(context, AppRoutes.features);
 
   void goPrivacy(BuildContext context) =>
-      Navigator.pushNamed(context, AppRoutes.privacy);
+      // Navigator.pushNamed(context, AppRoutes.privacy);
+      Navigator.pushNamed(context, AppRoutes.settings);
 
   void goProfile(BuildContext context) =>
       // Navigator.pushReplacementNamed(context, AppRoutes.profile);
@@ -15,7 +16,6 @@ class OnboardingVM {
   void finish(BuildContext context) {
     // Navigator.pushReplacementNamed(context, AppRoutes.home);
     Navigator.pushNamed(context, AppRoutes.home);
-    Navigator.pushReplacementNamed(context, AppRoutes.profile);
   }
 
   void goReminder(BuildContext context) =>

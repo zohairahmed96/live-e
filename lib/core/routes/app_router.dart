@@ -7,6 +7,8 @@ import 'package:liv_e/ui/views/dashboard/set_reminder_view.dart';
 import 'package:liv_e/ui/views/dashboard/spending_overview_view.dart';
 import 'package:liv_e/ui/views/dashboard/transport_assistance_view.dart';
 import 'package:liv_e/ui/views/profile/edit_profile_view.dart';
+import 'package:liv_e/ui/views/settings/privacy_policy_view.dart';
+import 'package:liv_e/ui/views/settings/settings_view.dart';
 import 'package:liv_e/ui/views/splash/notifications_view.dart';
 import 'package:liv_e/ui/views/profile/profile_setup_view.dart';
 import 'package:liv_e/ui/views/profile/profile_view.dart';
@@ -73,6 +75,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const DailyRoutineView());
       case AppRoutes.healthWellness:
         return MaterialPageRoute(builder: (_) => const HealthWellnessView());
+      case AppRoutes.settings:
+        return MaterialPageRoute(builder: (_) => const SettingsView());
+      case AppRoutes.privacyPolicy:
+        return MaterialPageRoute(builder: (_) => const PrivacyPolicyView());
     }
 
     return null;
