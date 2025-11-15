@@ -24,6 +24,7 @@ class AppRoutes {
   static const billReminders = '/bill-reminders';
   static const setReminder = '/set-reminder';
   static const spendingOverview = '/spending-overview';
+  static const communityEvents = '/community-events';
   // static const home = '/home'; // TODO
 
   // Settings

@@ -3,6 +3,7 @@ import 'package:liv_e/ui/views/auth/login_view.dart';
 import 'package:liv_e/ui/views/auth/reset_password_view.dart';
 import 'package:liv_e/ui/views/dashboard/financial_management_view.dart';
 import 'package:liv_e/ui/views/dashboard/bill_reminders_view.dart';
+import 'package:liv_e/ui/views/dashboard/community_events_view.dart';
 import 'package:liv_e/ui/views/dashboard/set_reminder_view.dart';
 import 'package:liv_e/ui/views/dashboard/spending_overview_view.dart';
 import 'package:liv_e/ui/views/dashboard/transport_assistance_view.dart';
@@ -65,7 +66,6 @@ class AppRouter {
         );
       case AppRoutes.billReminders:
         return MaterialPageRoute(builder: (_) => const BillRemindersView());
-
       case AppRoutes.setReminder:
         return MaterialPageRoute(builder: (_) => const SetReminderView());
 
@@ -79,6 +79,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SettingsView());
       case AppRoutes.privacyPolicy:
         return MaterialPageRoute(builder: (_) => const PrivacyPolicyView());
+      case AppRoutes.communityEvents:
+        return MaterialPageRoute(builder: (_) => const CommunityEventsView());
     }
 
     return null;

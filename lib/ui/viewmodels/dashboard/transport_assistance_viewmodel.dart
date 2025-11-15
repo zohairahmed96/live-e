@@ -11,6 +11,6 @@ class TransportAssistanceViewModel extends ChangeNotifier {
 
   void publicTransport(BuildContext ctx) {
     // TODO: navigate to routes/schedules
-    Navigator.pushNamed(ctx, AppRoutes.setReminder);
+    Navigator.pushNamed(ctx, AppRoutes.communityEvents);
   }
 }
