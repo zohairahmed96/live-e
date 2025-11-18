@@ -4,7 +4,8 @@ class ImagePaths {
   static const welcome = '${base}welcome.jpg';
   static const features = '${base}features.svg';
   static const keyFeatures = '${base}keyfeatures.png';
-  static const privateSecure = '${base}privatesecure.png';
+  static const privatesecure = '${base}privateSecure.svg';
+  static const privacySecure = '${base}privacySecure.png';
   static const carIcon = '${base}carIcon.png';
   static const busIcon = '${base}busIcon.png';
   static const reminder = '${base}reminder.png';

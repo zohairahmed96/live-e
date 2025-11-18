@@ -25,8 +25,8 @@ class OnboardingFeaturesView extends StatelessWidget {
       title: Constants.featuresTitle,
       subtitle: Constants.featuresSub,
       onNext: () => vm.goPrivacy(context),
-      showCTA: true,
-      index: 1,
+      showCTA: false,
+      index: 3,
     );
   }
 }
