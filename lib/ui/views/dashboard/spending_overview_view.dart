@@ -4,7 +4,7 @@ import 'package:liv_e/ui/viewmodels/dashboard/spending_overview_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../components/gradient_button.dart';
+import '../../components/Button/gradient_button.dart';
 
 class SpendingOverviewView extends StatelessWidget {
   const SpendingOverviewView({super.key});

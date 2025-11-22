@@ -16,12 +16,11 @@ class OnboardingPrivateView extends StatelessWidget {
       image: ImagePaths.privacySecure,
       title: Constants.privacyTitle,
       subtitle: Constants.privacySub,
-      index: 2,
-
       // onNext: () => {},
       //  Navigator.pushNamed(context, AppRoutes.login),
       onNext: () => vm.finish(context),
-      showCTA: true, // shows "Get Started" full-width button
+      index: 2,
+      isButton: true,
     );
   }
 }

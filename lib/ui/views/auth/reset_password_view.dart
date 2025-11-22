@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/core/utils/image_paths.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../components/gradient_button.dart';
+import '../../components/Button/gradient_button.dart';
 import '../../components/app_text_field.dart';
 import '../../viewmodels/auth/reset_password_viewmodel.dart';
 
@@ -58,18 +63,17 @@ class _ResetBody extends StatelessWidget {
               children: [
                 SizedBox(height: 1.h),
                 Center(
-                  child: Text(
-                    'Enter your email address below to receive\n'
-                    'a password reset link',
+                  child: AppText(
+                    txt:
+                        'Enter your email address below to receive\n'
+                        'a password reset link',
+                    color: AppColor.black,
+                    fontSize: AppFontSize.f16,
+                    fontWeight: FontWeight.w200,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 10.sp,
-                      height: 1.3,
-                    ),
                   ),
                 ),
-                SizedBox(height: 3.5.h),
+                SizedBox(height: ch(44)),
 
                 // Email field (rounded like mock)
                 AppTextField(
@@ -77,15 +81,21 @@ class _ResetBody extends StatelessWidget {
                   label: 'Email',
                   hint: 'yourname@gmail.com',
                   keyboard: TextInputType.emailAddress,
-                  prefix: const Icon(Icons.email_outlined),
+                  prefix: Image.asset(
+                    ImagePaths.resendEmail,
+                    width: cw(17),
+                    height: ch(17),
+                  ),
                   validator: vm.emailValidator,
                 ),
-                SizedBox(height: 2.6.h),
+                SizedBox(height: ch(24.1)),
 
                 // Gradient CTA
                 GradientButton(
                   label: 'Send reset link',
                   loading: vm.loading,
+                  fontWeight: FontWeight.w700,
+                  fontSize: AppFontSize.f20,
                   onPressed: () => vm.sendLink(context),
                 ),
                 SizedBox(height: 2.h),

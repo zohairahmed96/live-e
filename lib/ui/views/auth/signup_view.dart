@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../core/routes/app_routes.dart';
 // import '../../../core/utils/image_paths.dart';
 import '../../components/app_logo.dart';
-import '../../components/gradient_button.dart';
+import '../../components/Button/gradient_button.dart';
 import '../../viewmodels/auth/signup_viewmodel.dart';
 
 class SignupView extends StatelessWidget {
@@ -174,12 +175,14 @@ class _SignupBody extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 2.4.h),
-
                 GradientButton(
                   label: 'Continue',
                   loading: vm.loading,
+                  fontWeight: FontWeight.w700,
+                  fontSize: AppFontSize.f20,
                   onPressed: () => vm.submit(context),
                 ),
+
                 SizedBox(height: 2.2.h),
 
                 // bottom link

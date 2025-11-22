@@ -10,6 +10,8 @@ class GradientButton extends StatelessWidget {
   final double? height; // optional custom height
   final BorderRadius? radius;
   final Gradient? gradient;
+  final FontWeight? fontWeight;
+  final double? fontSize;
 
   const GradientButton({
     super.key,
@@ -20,6 +22,8 @@ class GradientButton extends StatelessWidget {
     this.height,
     this.radius,
     this.gradient,
+    this.fontWeight,
+    this.fontSize,
   });
 
   @override
@@ -65,8 +69,9 @@ class GradientButton extends StatelessWidget {
                         label,
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 12.5.sp, // ok: evaluated inside build
+                          fontWeight: fontWeight ?? FontWeight.w700,
+                          fontSize:
+                              fontSize ?? 12.5.sp, // ok: evaluated inside build
                         ),
                       ),
               ),

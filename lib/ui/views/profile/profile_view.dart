@@ -3,7 +3,7 @@ import 'package:liv_e/core/routes/app_routes.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-import 'package:liv_e/ui/components/gradient_button.dart';
+import 'package:liv_e/ui/components/Button/gradient_button.dart';
 import 'package:liv_e/ui/viewmodels/profile/profile_viewmodel.dart';
 
 class ProfileView extends StatelessWidget {

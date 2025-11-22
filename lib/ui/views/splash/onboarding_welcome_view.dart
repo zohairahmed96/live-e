@@ -17,7 +17,7 @@ class OnboardingWelcomeView extends StatelessWidget {
       subtitle: Constants.welcomeSub,
       onNext: () => vm.goFeatures(context),
       showCTA: true,
-      index: 1,
+      index: 0,
     );
   }
 }
