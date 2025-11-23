@@ -1,32 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 
 class SettingsRow extends StatelessWidget {
   const SettingsRow({
     super.key,
     required this.title,
-    required this.right, // any trailing widget (switch / slider / text)
+    required this.right,
+    this.horizontal,
+    this.vertical,
   });
 
   final String title;
   final Widget right;
+  final double? horizontal;
+  final double? vertical;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 0.8.h),
+      padding: EdgeInsetsGeometry.symmetric(horizontal: cw(16)),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
-            child: Text(
-              title,
-              style: const TextStyle(
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500,
-                fontSize: 16, // spec: 16
-                color: Color(0xFF000000),
-              ),
-            ),
+          AppText(
+            txt: title,
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+            color: AppColor.black,
           ),
           right,
         ],

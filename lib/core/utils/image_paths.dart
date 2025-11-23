@@ -18,5 +18,14 @@ class ImagePaths {
   static const google = '${base}google.png';
   static const apple = '${base}apple.png';
   static const resendEmail = '${base}resendEmail.png';
+  static const peopleIcon = '${base}peopleIcon.png';
+  static const peopleIconBlue = '${base}peopleIconBlue.png';
+  static const location = '${base}location.png';
+  static const notification = '${base}notification.png';
+  static const privacy = '${base}privacy.png';
+  static const logout = '${base}logout.png';
+  // static const apple = '${base}apple.png';
+  // static const resendEmail = '${base}resendEmail.png';
+  // static const peopleIcon = '${base}peopleIcon.png';
   // static const features2 = '${base}features2.jpg';
 }

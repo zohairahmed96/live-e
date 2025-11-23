@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
 import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/core/utils/image_paths.dart';
+import 'package:liv_e/ui/components/app_text.dart';
+import 'package:liv_e/ui/components/app_text_field.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../core/routes/app_routes.dart';
 // import '../../../core/utils/image_paths.dart';
-import '../../components/app_logo.dart';
 import '../../components/Button/gradient_button.dart';
 import '../../viewmodels/auth/signup_viewmodel.dart';
 
@@ -66,115 +70,96 @@ class _SignupBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 2.h),
-
                 // Logo
                 SizedBox(
                   height: 12.h,
-                  child: const Center(child: AppLogo(widthW: 24)),
-                ),
-                SizedBox(height: 2.5.h),
-
-                Text(
-                  'Create Your Account',
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w700,
-                    color: const Color(0xFF0B101B),
+                  child: Center(
+                    child: Image.asset(
+                      ImagePaths.subLogo,
+                      width: cw(125),
+                      height: ch(125),
+                    ),
                   ),
                 ),
-                SizedBox(height: .7.h),
-                Text(
-                  "Let's Create your account here...",
-                  style: TextStyle(fontSize: 10.sp, color: Colors.black45),
-                ),
-                SizedBox(height: 3.h),
+                SizedBox(height: ch(46.57)),
 
+                AppText(
+                  txt: 'Create Your Account',
+                  fontSize: AppFontSize.f26,
+                  fontWeight: FontWeight.w700,
+                  color: AppColor.black,
+                ),
+
+                SizedBox(height: ch(14.29)),
+
+                AppText(
+                  txt: "Let's Create your account here...",
+                  fontSize: AppFontSize.f16,
+                  fontWeight: FontWeight.w300,
+                  color: AppColor.black,
+                ),
+
+                SizedBox(height: ch(42.14)),
                 // Full name
-                TextFormField(
+                AppTextField(
                   controller: vm.nameCtrl,
+                  label: 'Full Name',
+                  hint: 'yourname@gmail.com',
+                  keyboard: TextInputType.name,
+                  prefix: Image.asset(ImagePaths.email),
                   validator: (v) => vm.notEmpty(v, 'full name'),
-                  decoration: deco(
-                    label: 'Full Name',
-                    hint: 'yournamehere',
-                    icon: Icons.person_outline,
-                  ),
                 ),
-                SizedBox(height: 1.5.h),
+
+                SizedBox(height: ch(22.35)),
 
                 // Email
-                TextFormField(
+                AppTextField(
                   controller: vm.emailCtrl,
-                  keyboardType: TextInputType.emailAddress,
-                  validator: vm.emailValidator,
-                  decoration: deco(
-                    label: 'Email',
-                    hint: 'yourname@gmail.com',
-                    icon: Icons.email_outlined,
-                  ),
+                  label: 'Email',
+                  hint: 'yourname@gmail.com',
+                  keyboard: TextInputType.emailAddress,
+                  prefix: Image.asset(ImagePaths.resendEmail),
+                  validator: (v) => vm.emailValidator(v),
                 ),
-                SizedBox(height: 1.5.h),
+
+                SizedBox(height: ch(23.21)),
 
                 // Phone
-                TextFormField(
+                AppTextField(
                   controller: vm.phoneCtrl,
-                  keyboardType: TextInputType.phone,
-                  validator: vm.phoneValidator,
-                  decoration: deco(
-                    label: 'Phone Number',
-                    hint: '+91 223 456 7890',
-                    icon: Icons.call_outlined,
-                  ),
+                  label: 'Phone Number',
+                  hint: '+91 223 456 7890',
+                  keyboard: TextInputType.phone,
+                  prefix: Image.asset(ImagePaths.email),
+                  validator: (v) => vm.phoneValidator(v),
                 ),
-                SizedBox(height: 1.5.h),
+                SizedBox(height: ch(22.35)),
 
                 // Password
-                TextFormField(
+                AppTextField(
                   controller: vm.passCtrl,
-                  obscureText: vm.obscure1,
-                  validator: vm.passValidator,
-                  decoration: deco(
-                    label: 'Password',
-                    hint: '********',
-                    icon: Icons.lock_outline,
-                    suffix: IconButton(
-                      icon: Icon(
-                        vm.obscure1
-                            ? Icons.visibility_off_outlined
-                            : Icons.visibility_outlined,
-                      ),
-                      onPressed: () {
-                        vm.obscure1 = !vm.obscure1;
-                        // vm.notifyListeners();
-                      },
-                    ),
-                  ),
+                  label: 'Password',
+                  hint: '********',
+                  keyboard: TextInputType.visiblePassword,
+                  prefix: Image.asset(ImagePaths.email),
+                  validator: (v) => vm.passValidator(v),
+                  isPassword: true,
                 ),
-                SizedBox(height: 1.5.h),
+
+                SizedBox(height: ch(22.54)),
 
                 // Confirm Password
-                TextFormField(
+                AppTextField(
                   controller: vm.cpassCtrl,
-                  obscureText: vm.obscure2,
-                  validator: vm.confirmValidator,
-                  decoration: deco(
-                    label: 'Confirm Password',
-                    hint: '********',
-                    icon: Icons.lock_outline,
-                    suffix: IconButton(
-                      icon: Icon(
-                        vm.obscure2
-                            ? Icons.visibility_off_outlined
-                            : Icons.visibility_outlined,
-                      ),
-                      onPressed: () {
-                        vm.obscure2 = !vm.obscure2;
-                        // vm.notifyListeners();
-                      },
-                    ),
-                  ),
+                  label: 'Password',
+                  hint: '********',
+                  keyboard: TextInputType.visiblePassword,
+                  prefix: Image.asset(ImagePaths.email),
+                  validator: (v) => vm.confirmValidator(v),
+                  isPassword: true,
                 ),
-                SizedBox(height: 2.4.h),
+
+                SizedBox(height: ch(27.6)),
                 GradientButton(
                   label: 'Continue',
                   loading: vm.loading,
@@ -183,7 +168,7 @@ class _SignupBody extends StatelessWidget {
                   onPressed: () => vm.submit(context),
                 ),
 
-                SizedBox(height: 2.2.h),
+                SizedBox(height: ch(22.6)),
 
                 // bottom link
                 Wrap(
@@ -209,7 +194,6 @@ class _SignupBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 3.h),
               ],
             ),
           ),

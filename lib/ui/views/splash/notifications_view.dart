@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:liv_e/ui/components/notification_tile.dart';
 import 'package:liv_e/ui/viewmodels/profile/notifications_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +38,7 @@ class _NotificationsBody extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.black87,
+            color: AppColor.c3CA4DC,
           ),
           onPressed: () => Navigator.pop(context),
         ),
@@ -56,26 +60,25 @@ class _NotificationsBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 2.0.h),
+              SizedBox(height: ch(34)),
 
               // Recent list (three cards)
               ..._buildList(vm.recent),
 
-              SizedBox(height: 2.6.h),
-              Text(
-                'Last 30 Days',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 11.sp,
-                  color: const Color(0xFF0B101B),
-                ),
+              SizedBox(height: ch(30)),
+
+              AppText(
+                txt: 'Last 30 Days',
+                fontWeight: FontWeight.w700,
+                fontSize: AppFontSize.f18,
+                color: AppColor.black,
               ),
-              SizedBox(height: 1.2.h),
+              SizedBox(height: ch(16)),
 
               // Older list
               ..._buildList(vm.last30),
 
-              SizedBox(height: 3.0.h),
+              // SizedBox(height: 3.0.h),
             ],
           ),
         ),
@@ -87,7 +90,7 @@ class _NotificationsBody extends StatelessWidget {
     return [
       for (int i = 0; i < items.length; i++) ...[
         NotificationTile(item: items[i]),
-        if (i != items.length - 1) SizedBox(height: 1.2.h),
+        if (i != items.length - 1) SizedBox(height: ch(12)),
       ],
     ];
   }

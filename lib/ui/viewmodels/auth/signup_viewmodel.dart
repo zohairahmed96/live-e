@@ -56,4 +56,6 @@ class SignupViewModel extends ChangeNotifier {
     cpassCtrl.dispose();
     super.dispose();
   }
+
+  void sendLink(BuildContext context) {}
 }

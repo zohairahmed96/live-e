@@ -9,11 +9,9 @@ import 'package:liv_e/ui/components/app_text.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 // import '../../../core/utils/image_paths.dart';
-import '../../components/app_password_field.dart';
 import '../../components/app_text_field.dart';
 import '../../components/Button/gradient_button.dart';
 import '../../components/social_button.dart';
-import '../../components/app_logo.dart';
 import '../../viewmodels/auth/login_viewmodel.dart';
 
 class LoginView extends StatelessWidget {
@@ -118,7 +116,7 @@ class _LoginBody extends StatelessWidget {
                   label: 'Log In',
                   loading: vm.loading,
                   onPressed: () => {
-                    Navigator.pushNamed(context, AppRoutes.settings),
+                    Navigator.pushNamed(context, AppRoutes.editProfile),
                   },
                 ),
                 SizedBox(height: 2.6.h),

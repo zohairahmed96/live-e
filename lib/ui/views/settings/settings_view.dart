@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:liv_e/core/routes/app_routes.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:liv_e/ui/components/font_size_slider.dart';
 import 'package:liv_e/ui/components/settings_nav_row.dart';
 import 'package:liv_e/ui/components/settings_row.dart';
@@ -31,10 +35,6 @@ class _SettingsBody extends StatelessWidget {
   final double Function(BuildContext, double) wp;
   final double Function(BuildContext, double) hp;
 
-  static const Color kHeaderBG = Color(0xFFE8F3FF);
-  static const Color kBlue = Color(0xFF3CA4DC);
-  static const Color kDivider = Color(0xFFD7ECF9);
-
   TextStyle sTitle() => GoogleFonts.poppins(
     fontSize: 20, // spec: 20
     fontWeight: FontWeight.w600, // spec: 600
@@ -49,11 +49,11 @@ class _SettingsBody extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: kHeaderBG,
+        backgroundColor: AppColor.cE8F3FF,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: kBlue,
+            color: AppColor.c3CA4DC,
           ), // spec 1
           onPressed: () => Navigator.pop(context),
         ),
@@ -70,81 +70,121 @@ class _SettingsBody extends StatelessWidget {
       body: SafeArea(
         top: false,
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(
-            horizontal: wp(context, 20),
-            vertical: hp(context, 16),
-          ),
+          padding: EdgeInsets.symmetric(horizontal: cw(30), vertical: ch(27)),
           child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 370), // spec: 370px
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // -------- Accessibility --------
-                  Text('Accessibility', style: sTitle()),
-                  SizedBox(height: hp(context, 10)),
-                  SettingsSectionCard(
-                    height: 23.h, // spec: 170px
-                    child: Column(
-                      children: [
-                        SettingsRow(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // -------- Accessibility --------
+                AppText(
+                  txt: "Accessibility",
+                  fontSize: AppFontSize.f20,
+                  fontWeight: FontWeight.w600,
+                ),
+                // Text('Accessibility', style: sTitle()),
+                SizedBox(height: ch(18)),
+                SettingsSectionCard(
+                  height: ch(170),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: ch(15), bottom: ch(11)),
+                        child: SettingsRow(
                           title: 'Font Size',
                           right: const FontSizeSlider(),
                         ),
-                        const Divider(height: 1, color: kDivider),
-                        SettingsRow(
-                          title: 'Dark Mode',
-                          right: Transform.scale(
-                            scale: 0.8,
-                            child: Switch.adaptive(
-                              value: vm.darkMode,
-                              onChanged: vm.toggleDark,
-                              activeColor: kBlue,
-                            ),
+                      ),
+                      const Divider(
+                        indent: 14,
+                        endIndent: 14,
+                        height: 1,
+                        color: AppColor.cD7ECF9,
+                      ),
+                      SettingsRow(
+                        title: 'Dark Mode',
+                        right: Transform.scale(
+                          scale: 0.8,
+                          child: Switch.adaptive(
+                            value: vm.darkMode,
+                            onChanged: vm.toggleDark,
+                            activeColor: AppColor.cE8F3FF,
                           ),
                         ),
-                        const Divider(height: 1, color: kDivider),
-                        SettingsRow(
-                          title: 'Text-to-Speech',
-                          right: Transform.scale(
-                            scale: 0.8,
-                            child: Switch.adaptive(
-                              value: vm.tts,
-                              onChanged: vm.toggleTts,
-                              activeColor: const Color(0xFF3CA4DC),
-                            ),
+                      ),
+                      Divider(
+                        indent: cw(14),
+                        endIndent: cw(14),
+                        height: 1,
+                        color: AppColor.cD7ECF9,
+                      ),
+                      SettingsRow(
+                        title: 'Text-to-Speech',
+                        right: Transform.scale(
+                          scale: 0.8,
+                          child: Switch.adaptive(
+                            value: vm.tts,
+                            onChanged: vm.toggleTts,
+                            activeColor: const Color(0xFF3CA4DC),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+                ),
 
-                  SizedBox(height: hp(context, 22)),
+                SizedBox(height: ch(27)),
 
-                  // -------- Account Preferences --------
-                  Text('Account Preferences', style: sTitle()),
-                  SizedBox(height: hp(context, 10)),
-                  SettingsSectionCard(
-                    height: hp(context, 120), // spec: 120px
-                    child: Column(
-                      children: const [
-                        SettingsNavRow(title: 'Profile Information'),
-                        Divider(height: 1, color: kDivider),
-                        SettingsNavRow(title: 'Caregiver Contact'),
-                      ],
-                    ),
+                // -------- Account Preferences --------
+                Text('Account Preferences', style: sTitle()),
+                SizedBox(height: ch(18)),
+                SettingsSectionCard(
+                  height: ch(120), // spec: 120px
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: ch(21), bottom: ch(17)),
+                        child: SettingsRow(
+                          title: 'Profile Information',
+                          right: Icon(
+                            Icons.chevron_right_rounded,
+                            color: AppColor.c3CA4DC,
+                          ),
+                        ),
+                      ),
+                      // SettingsNavRow(title: 'Profile Information'),
+                      Divider(
+                        indent: 14,
+                        endIndent: 14,
+                        height: 1,
+                        color: AppColor.cD7ECF9,
+                      ),
+                      // SettingsNavRow(title: 'Caregiver Contact'),
+                      Padding(
+                        padding: EdgeInsets.only(top: ch(17)),
+                        child: SettingsRow(
+                          title: 'Caregiver Contact',
+                          right: Icon(
+                            Icons.chevron_right_rounded,
+                            color: AppColor.c3CA4DC,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
+                ),
 
-                  SizedBox(height: hp(context, 22)),
+                SizedBox(height: ch(23)),
 
-                  // -------- App Info --------
-                  Text('App Info', style: sTitle()),
-                  SizedBox(height: hp(context, 10)),
-                  SettingsSectionCard(
-                    height: hp(context, 179), // spec: 179px
-                    child: Column(
-                      children: [
-                        SettingsRow(
+                // -------- App Info --------
+                Text('App Info', style: sTitle()),
+                SizedBox(height: ch(18)),
+                SettingsSectionCard(
+                  height: hp(context, 179), // spec: 179px
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: ch(21), bottom: ch(17)),
+                        child: SettingsRow(
                           title: 'Version Info',
                           right: Text(
                             '14.0.0',
@@ -155,25 +195,63 @@ class _SettingsBody extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Divider(height: 1, color: kDivider),
-                        SettingsNavRow(
-                          title: 'Privacy Policy',
-                          onTap: () {
-                            Navigator.pushNamed(
-                              context,
-                              AppRoutes.privacyPolicy,
-                            );
-                          },
-                        ),
-                        const Divider(height: 1, color: kDivider),
-                        const SettingsNavRow(title: 'Feedback Form'),
-                      ],
-                    ),
-                  ),
+                      ),
+                      const Divider(
+                        indent: 14,
+                        endIndent: 14,
+                        height: 1,
+                        color: AppColor.cD7ECF9,
+                      ),
 
-                  SizedBox(height: hp(context, 24)),
-                ],
-              ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: ch(17)),
+                        child: SettingsRow(
+                          title: 'Privacy Policy',
+                          right: GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                AppRoutes.privacyPolicy,
+                              );
+                            },
+                            child: Icon(
+                              Icons.chevron_right_rounded,
+                              color: AppColor.c3CA4DC,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Divider(
+                        indent: 14,
+                        endIndent: 14,
+                        height: 1,
+                        color: AppColor.cD7ECF9,
+                      ),
+                      // const SettingsNavRow(title: 'Feedback Form'),
+                      Padding(
+                        padding: EdgeInsets.only(top: ch(17)),
+                        child: SettingsRow(
+                          title: 'Feedback Form',
+                          right: GestureDetector(
+                            onTap: () {
+                              // Navigator.pushNamed(
+                              //   context,
+                              //   AppRoutes.privacyPolicy,
+                              // );
+                            },
+                            child: Icon(
+                              Icons.chevron_right_rounded,
+                              color: AppColor.c3CA4DC,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                SizedBox(height: hp(context, 24)),
+              ],
             ),
           ),
         ),

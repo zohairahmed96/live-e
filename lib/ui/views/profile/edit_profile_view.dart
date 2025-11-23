@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:liv_e/core/routes/app_routes.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/image_paths.dart';
 import 'package:liv_e/ui/components/Button/gradient_button.dart';
 import 'package:liv_e/ui/viewmodels/profile/edit_profile_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -95,26 +98,26 @@ class _EditBody extends StatelessWidget {
                       ),
                       clipBehavior: Clip.antiAlias,
                       child: vm.photoPath == null
-                          ? const Icon(
-                              Icons.person,
-                              size: 56,
-                              color: Color(0xFF2380C4),
+                          ? Image.asset(
+                              ImagePaths.peopleIconBlue,
+                              width: cw(101),
+                              height: ch(101),
                             )
                           : Image.file(File(vm.photoPath!), fit: BoxFit.cover),
                     ),
                     GestureDetector(
                       // onTap: vm.pickImage,
                       child: Container(
-                        width: 36,
-                        height: 36,
+                        width: cw(48),
+                        height: cw(48),
                         decoration: const BoxDecoration(
-                          color: Color(0xFF2380C4),
+                          color: AppColor.c3CA4DC,
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(
                           Icons.camera_alt_rounded,
                           color: Colors.white,
-                          size: 18,
+                          size: 23,
                         ),
                       ),
                     ),
