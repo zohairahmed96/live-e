@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:sizer/sizer.dart';
 
 class ActionBlueCard extends StatelessWidget {
@@ -19,24 +23,25 @@ class ActionBlueCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Color blue = Color(0xFF3CA4DC); // brand-ish mid blue
+    const Color blue = AppColor.c3CA4DC; // brand-ish mid blue
     return InkWell(
       borderRadius: BorderRadius.circular(14),
       onTap: onTap,
       child: Ink(
-        height: 12.06.h,
+        height: ch(98),
+        width: cw(370),
         decoration: BoxDecoration(
           color: blue,
           borderRadius: BorderRadius.circular(14),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 3.6.w),
+          padding: EdgeInsets.symmetric(horizontal: cw(10)),
           child: Row(
             children: [
               // left icon in soft square
               Container(
-                width: 30.6.w,
-                height: 9.60.h,
+                width: cw(115),
+                height: ch(78),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(.15),
                   borderRadius: BorderRadius.circular(10),
@@ -47,13 +52,13 @@ class ActionBlueCard extends StatelessWidget {
                       Image.asset(
                         icon ?? "assets/images/carIcon.png",
                         color: Colors.white,
-                        width: 17.8.w,
-                        height: 6.59.h,
+                        width: cw(66),
+                        height: ch(53),
                       ),
                 ),
                 // Icon(icon as IconData?, color: Colors.white, size: 24),
               ),
-              SizedBox(width: 3.8.w),
+              SizedBox(width: cw(19)),
 
               // title + subtitle
               Expanded(
@@ -62,20 +67,15 @@ class ActionBlueCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Expanded(
-                          child: Text(
-                            title,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 11.sp,
-                            ),
-                          ),
+                        AppText(
+                          txt: title,
+                          fontWeight: FontWeight.w700,
+                          fontSize: AppFontSize.f18,
+                          color: AppColor.white,
+                          height: 1.5,
                         ),
                         Icon(
                           Icons.chevron_right_rounded,
@@ -84,17 +84,23 @@ class ActionBlueCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: .4.h),
-                    Text(
-                      subtitle,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(.90),
-                        fontSize: 9.sp,
-                        height: 1.25,
-                      ),
+                    // SizedBox(height: .4.h),
+                    AppText(
+                      txt: subtitle,
+                      fontSize: AppFontSize.f11,
+                      color: AppColor.white,
+                      height: 1.25,
                     ),
+                    // Text(
+                    //   subtitle,
+                    //   maxLines: 2,
+                    //   overflow: TextOverflow.ellipsis,
+                    //   style: TextStyle(
+                    //     color: Colors.white.withOpacity(.90),
+                    //     fontSize: 9.sp,
+                    //     height: 1.25,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

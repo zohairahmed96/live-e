@@ -17,6 +17,8 @@ class AppText extends StatelessWidget {
     this.wordspacing,
     this.decoration,
     this.isGradient = false, // NEW
+    this.overFlow,
+    this.maxLines,
   }) : super(key: key);
 
   final String txt;
@@ -30,7 +32,8 @@ class AppText extends StatelessWidget {
   double? letterspacing;
   double? wordspacing;
   TextDecoration? decoration;
-
+  TextOverflow? overFlow;
+  int? maxLines;
   final bool isGradient;
 
   @override
@@ -50,6 +53,8 @@ class AppText extends StatelessWidget {
       return Text(
         txt,
         textAlign: textAlign ?? TextAlign.start,
+        overflow: overFlow ?? TextOverflow.ellipsis,
+        maxLines: maxLines ?? 2,
         style: TextStyle(
           fontFamily: fontFamily ?? "Poppins",
           fontSize: fontSize ?? AppFontSize.f14,

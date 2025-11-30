@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:liv_e/core/routes/app_routes.dart';
 import 'package:liv_e/ui/viewmodels/onboarding_vm.dart';
 import '../../../core/utils/constants.dart';
 import '../../../core/utils/image_paths.dart';

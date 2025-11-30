@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../viewmodels/settings/privacy_policy_viewmodel.dart';
-import '../../../core/routes/app_routes.dart'; // optional if needed elsewhere
 
 class PrivacyPolicyView extends StatelessWidget {
   const PrivacyPolicyView({super.key});
@@ -45,34 +46,30 @@ class _PrivacyPolicyBody extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text(
-          'Privacy Policy',
-          style: GoogleFonts.poppins(
-            fontSize: 14.5.sp,
-            fontWeight: FontWeight.w700,
-            color: const Color(0xFF0B101B),
-          ),
+        title: AppText(
+          txt: 'Privacy Policy',
+          fontSize: AppFontSize.f22,
+          fontWeight: FontWeight.w600,
         ),
+        // Text(
+        //   'Privacy Policy',
+        //   style: GoogleFonts.poppins(
+        //     fontSize: 14.5.sp,
+        //     fontWeight: FontWeight.w700,
+        //     color: const Color(0xFF0B101B),
+        //   ),
+        // ),
       ),
       body: SafeArea(
         top: false,
         child: SingleChildScrollView(
           padding: EdgeInsets.fromLTRB(
-            wp(30), // left  = 30px -> .w
-            hp(34), // top   = 34px -> .h
-            wp(30), // right = 30px -> .w
-            hp(16), // bottom thoda extra
+            cw(30), // left  = 30px -> .w
+            ch(34), // top   = 34px -> .h
+            cw(30), // right = 30px -> .w
+            ch(16), // bottom thoda extra
           ),
-          child: Text(
-            vm.policyText,
-            style: GoogleFonts.poppins(
-              fontSize: 14, // (2) font size 14
-              fontWeight: FontWeight.w400,
-              color: const Color(0xFF000000),
-              height: 1.5, // halka sa line-height jaisa mock
-            ),
-            textAlign: TextAlign.left,
-          ),
+          child: AppText(txt: vm.policyText, fontSize: AppFontSize.f14),
         ),
       ),
     );

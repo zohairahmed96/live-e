@@ -5,7 +5,6 @@ import 'package:liv_e/core/utils/helper/color.utils.dart';
 import 'package:liv_e/core/utils/helper/font_size.dart';
 import 'package:liv_e/ui/components/app_text.dart';
 import 'package:liv_e/ui/components/font_size_slider.dart';
-import 'package:liv_e/ui/components/settings_nav_row.dart';
 import 'package:liv_e/ui/components/settings_row.dart';
 import 'package:liv_e/ui/components/settings_section_card.dart';
 import 'package:provider/provider.dart';
@@ -58,14 +57,19 @@ class _SettingsBody extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text(
-          'Setting',
-          style: GoogleFonts.poppins(
-            fontSize: 14.5.sp,
-            fontWeight: FontWeight.w700,
-            color: const Color(0xFF0B101B),
-          ),
+        title: AppText(
+          txt: "Setting",
+          fontSize: AppFontSize.f22,
+          fontWeight: FontWeight.w600,
         ),
+        // Text(
+        //   '',
+        //   style: GoogleFonts.poppins(
+        //     fontSize: 14.5.sp,
+        //     fontWeight: FontWeight.w700,
+        //     color: const Color(0xFF0B101B),
+        //   ),
+        // ),
       ),
       body: SafeArea(
         top: false,
@@ -108,6 +112,10 @@ class _SettingsBody extends StatelessWidget {
                             value: vm.darkMode,
                             onChanged: vm.toggleDark,
                             activeColor: AppColor.cE8F3FF,
+                            inactiveTrackColor: AppColor.cC4EBFF,
+                            thumbColor: MaterialStateProperty.all(
+                              AppColor.c3CA4DC,
+                            ),
                           ),
                         ),
                       ),
@@ -124,7 +132,11 @@ class _SettingsBody extends StatelessWidget {
                           child: Switch.adaptive(
                             value: vm.tts,
                             onChanged: vm.toggleTts,
-                            activeColor: const Color(0xFF3CA4DC),
+                            activeColor: AppColor.c3CA4DC,
+                            inactiveTrackColor: AppColor.cC4EBFF,
+                            thumbColor: MaterialStateProperty.all(
+                              AppColor.c3CA4DC,
+                            ),
                           ),
                         ),
                       ),
