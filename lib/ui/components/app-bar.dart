@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
 import 'package:liv_e/core/utils/helper/color.utils.dart';
-import 'package:liv_e/ui/components/app_text.dart';
-import 'package:sizer/sizer.dart';
 
 Widget customAppBar({
   // double? appBarHeight,

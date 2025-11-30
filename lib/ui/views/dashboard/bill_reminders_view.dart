@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:liv_e/ui/components/calender.dart';
 import 'package:liv_e/ui/viewmodels/dashboard/bill_reminders_viewmodel.dart'
     show BillRemindersViewModel;
@@ -22,7 +26,7 @@ class BillRemindersView extends StatelessWidget {
 class _Body extends StatelessWidget {
   const _Body();
 
-  static const kBlue = Color(0xFF3CA4DC); // header back & calendar blue
+  static const kBlue = AppColor.c3CA4DC; // header back & calendar blue
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +36,7 @@ class _Body extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
+        toolbarHeight: ch(80),
         backgroundColor: const Color(0xFFE8F3FF),
         leading: IconButton(
           icon: const Icon(
@@ -41,13 +46,10 @@ class _Body extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text(
-          'Bill Reminders',
-          style: TextStyle(
-            fontSize: 14.5.sp,
-            fontWeight: FontWeight.w700,
-            color: Colors.black87,
-          ),
+        title: AppText(
+          txt: 'Bill Reminders',
+          fontSize: AppFontSize.f22,
+          fontWeight: FontWeight.w600,
         ),
       ),
       body: SafeArea(
@@ -57,16 +59,20 @@ class _Body extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Bill Reminders',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 11.sp,
-                  color: Colors.black87,
-                ),
+              AppText(
+                txt: 'Bill Reminders',
+                fontWeight: FontWeight.w600,
+                fontSize: AppFontSize.f20,
               ),
-              SizedBox(height: 1.2.h),
-
+              // Text(
+              //   'Bill Reminders',
+              //   style: TextStyle(
+              //     fontWeight: FontWeight.w700,
+              //     fontSize: 11.sp,
+              //     color: Colors.black87,
+              //   ),
+              // ),
+              SizedBox(height: ch(20)),
               BlueCalendar(
                 month: vm.current,
                 isReminder: vm.isReminder,
@@ -75,24 +81,10 @@ class _Body extends StatelessWidget {
                 onNext: vm.nextMonth,
               ),
 
-              SizedBox(height: 2.0.h),
-              LightBlueButton(
-                label: 'Set Reminder',
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Set Reminder tapped')),
-                  );
-                },
-              ),
-              SizedBox(height: 1.2.h),
-              LightBlueButton(
-                label: 'Filter Option',
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Filter Option tapped')),
-                  );
-                },
-              ),
+              SizedBox(height: ch(36)),
+              LightBlueButton(label: 'Set Reminder', onPressed: () {}),
+              SizedBox(height: ch(16)),
+              LightBlueButton(label: 'Filter Option', onPressed: () {}),
               SizedBox(height: 2.0.h),
             ],
           ),

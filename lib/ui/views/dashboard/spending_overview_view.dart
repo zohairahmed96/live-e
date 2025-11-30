@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:liv_e/ui/components/spending_pie_chart.dart';
 import 'package:liv_e/ui/viewmodels/dashboard/spending_overview_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +25,7 @@ class SpendingOverviewView extends StatelessWidget {
 class _Body extends StatelessWidget {
   const _Body();
 
-  static const kHeaderBlue = Color(0xFFE8F3FF);
+  static const kHeaderBlue = AppColor.cE4F6FF;
   static const kLightBlue = Color(0xFF3CA4DC);
   static const kDarkBlue = Color(0xFF334EA0);
 
@@ -30,25 +34,23 @@ class _Body extends StatelessWidget {
     final vm = context.watch<SpendingOverviewViewModel>();
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       appBar: AppBar(
+        toolbarHeight: ch(80),
         elevation: 0,
         backgroundColor: kHeaderBlue,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.black87,
+            color: AppColor.c3CA4DC,
           ),
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text(
-          'Spending Overview',
-          style: TextStyle(
-            fontSize: 14.5.sp,
-            fontWeight: FontWeight.w700,
-            color: const Color(0xFF0B101B),
-          ),
+        title: AppText(
+          txt: 'Spending Overview',
+          fontSize: AppFontSize.f22,
+          fontWeight: FontWeight.w600,
         ),
       ),
       body: SafeArea(
@@ -63,8 +65,8 @@ class _Body extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SpendingPieChartFL(slices: vm.slices),
-                  SizedBox(width: 6.w),
-                  Expanded(child: _LegendFL(slices: vm.slices)),
+                  SizedBox(width: 4.w),
+                  _LegendFL(slices: vm.slices),
                 ],
               ),
               SizedBox(height: 2.0.h),
@@ -242,33 +244,34 @@ class _LegendFL extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // exact order: Food, Transportation, Entertainment (like your image)
     final order = [
       ...slices.where((s) => s.label.toLowerCase().startsWith('food')),
       ...slices.where((s) => s.label.toLowerCase().contains('transport')),
       ...slices.where((s) => s.label.toLowerCase().startsWith('entertain')),
     ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: order.map((s) {
         return Padding(
-          padding: EdgeInsets.only(bottom: .9.h),
+          padding: EdgeInsets.only(bottom: 1.2.h),
           child: Row(
             children: [
               Container(
-                width: 14,
-                height: 14,
+                width: 15,
+                height: 15,
                 decoration: BoxDecoration(
                   color: s.color,
-                  borderRadius: BorderRadius.circular(3),
+                  borderRadius: BorderRadius.circular(4),
                 ),
               ),
-              SizedBox(width: 2.w),
+              SizedBox(width: 3.w),
               Text(
                 s.label,
                 style: const TextStyle(
                   color: Colors.black87,
                   fontWeight: FontWeight.w600,
+                  fontSize: 14,
                 ),
               ),
             ],

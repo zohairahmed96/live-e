@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:sizer/sizer.dart';
 
 class LightBlueButton extends StatelessWidget {
@@ -27,7 +30,12 @@ class LightBlueButton extends StatelessWidget {
           textStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: 11.sp),
         ),
         onPressed: onPressed,
-        child: Text(label),
+        child: AppText(
+          txt: label,
+          fontSize: AppFontSize.f18,
+          fontWeight: FontWeight.w600,
+          color: AppColor.c3CA4DC,
+        ),
       ),
     );
   }

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:sizer/sizer.dart';
 
 class BlueCalendar extends StatelessWidget {
@@ -16,7 +20,7 @@ class BlueCalendar extends StatelessWidget {
     required this.onDayTap,
   });
 
-  static const kBlue = Color(0xFF3CA4DC);
+  static const kBlue = AppColor.c3CA4DC;
   static const _weekdayLabels = [
     'Sun',
     'MON',
@@ -36,7 +40,7 @@ class BlueCalendar extends StatelessWidget {
     final rows = (cells / 7).ceil();
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 3.6.w, vertical: 1.6.h),
+      padding: EdgeInsets.symmetric(horizontal: cw(19), vertical: ch(18)),
       decoration: BoxDecoration(
         color: kBlue,
         borderRadius: BorderRadius.circular(14),
@@ -46,24 +50,37 @@ class BlueCalendar extends StatelessWidget {
           // Top row (year, month, calendar icon)
           Row(
             children: [
-              Text(
-                '${month.year}',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 11.sp,
-                ),
+              AppText(
+                txt: '${month.year}',
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: AppFontSize.f14,
               ),
+              // Text(
+              //   '${month.year}',
+              //   style: TextStyle(
+              //     color: Colors.white,
+              //     fontWeight: FontWeight.w700,
+              //     fontSize: 11.sp,
+              //   ),
+              // ),
               const Spacer(),
-              Text(
-                _monthName(month.month).toUpperCase(),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 2,
-                  fontSize: 10.sp,
-                ),
+              AppText(
+                txt: _monthName(month.month).toUpperCase(),
+                color: AppColor.white,
+                fontWeight: FontWeight.w700,
+                fontSize: AppFontSize.f14,
+                wordspacing: 2,
               ),
+              // Text(
+              //   _monthName(month.month).toUpperCase(),
+              //   style: TextStyle(
+              //     color: Colors.white,
+              //     fontWeight: FontWeight.w700,
+              //     letterSpacing: 2,
+              //     fontSize: 10.sp,
+              //   ),
+              // ),
               const Spacer(),
               const Icon(
                 Icons.calendar_today_rounded,
@@ -76,18 +93,22 @@ class BlueCalendar extends StatelessWidget {
 
           // Weekday header (white tabs)
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(
                 onPressed: onPrev,
                 padding: EdgeInsets.zero,
                 icon: const Icon(
                   Icons.chevron_left_rounded,
-                  color: Colors.white,
+                  color: AppColor.white,
                 ),
               ),
 
-              // 👇 yahan inner Row ko Expanded se wrap karo
-              Expanded(
+              Container(
+                decoration: BoxDecoration(
+                  color: AppColor.white,
+                  borderRadius: BorderRadius.circular(4),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: List.generate(7, (i) {
@@ -97,17 +118,14 @@ class BlueCalendar extends StatelessWidget {
                         vertical: .4.h,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Text(
-                        _weekdayLabels[i],
-                        style: TextStyle(
-                          color: kBlue,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 8.sp,
-                          letterSpacing: .2,
-                        ),
+                      child: AppText(
+                        txt: _weekdayLabels[i],
+                        color: AppColor.c1B1B1B,
+                        fontWeight: FontWeight.w700,
+                        wordspacing: 2,
+                        fontSize: AppFontSize.f11,
                       ),
                     );
                   }),
@@ -124,7 +142,7 @@ class BlueCalendar extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 1.0.h),
+          SizedBox(height: ch(10)),
 
           // Dates grid
           Column(
@@ -155,16 +173,19 @@ class BlueCalendar extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         alignment: Alignment.center,
-                        child: Text(
-                          '$dayNum',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: isHighlighted
-                                ? kBlue
-                                : Colors.white, // rule you gave
-                            fontSize: 10.sp,
-                          ),
+                        child: AppText(
+                          txt: '$dayNum',
+                          fontWeight: FontWeight.w600,
+                          color: isHighlighted ? kBlue : Colors.white,
                         ),
+                        // Text(
+                        //   ,
+                        //   style: TextStyle(
+                        //     fontWeight: FontWeight.w600,
+                        //     // rule you gave
+                        //     fontSize: 10.sp,
+                        //   ),
+                        // ),
                       ),
                     );
                   }),
