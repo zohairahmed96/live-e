@@ -1,5 +1,8 @@
 // lib/ui/components/gradient_button.dart
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:sizer/sizer.dart';
 
 class GradientButton extends StatelessWidget {
@@ -65,14 +68,11 @@ class GradientButton extends StatelessWidget {
                           strokeWidth: 2,
                         ),
                       )
-                    : Text(
-                        label,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: fontWeight ?? FontWeight.w700,
-                          fontSize:
-                              fontSize ?? 12.5.sp, // ok: evaluated inside build
-                        ),
+                    : AppText(
+                        txt: label,
+                        color: AppColor.white,
+                        fontWeight: fontWeight ?? FontWeight.w700,
+                        fontSize: fontSize ?? AppFontSize.f20,
                       ),
               ),
             ),

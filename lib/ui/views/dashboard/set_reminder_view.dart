@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:liv_e/ui/viewmodels/dashboard/set_reminder_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -21,8 +25,8 @@ class SetReminderView extends StatelessWidget {
 class _Body extends StatelessWidget {
   const _Body();
 
-  static const kFill = Color(0xFFE4F6FF); // input bg
-  static const kBlueStart = Color(0xFF3CA4DC); // button gradient start
+  static const kFill = AppColor.cE4F6FF; // input bg
+  static const kBlueStart = AppColor.c3CA4DC; // button gradient start
   static const kBlueEnd = Color(0xFF334EA0); // button gradient end
 
   @override
@@ -33,22 +37,20 @@ class _Body extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
+        toolbarHeight: ch(80),
         backgroundColor: const Color(0xFFE8F3FF),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.black87,
+            color: AppColor.c3CA4DC,
           ),
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text(
-          'Set Reminder',
-          style: TextStyle(
-            fontSize: 14.5.sp,
-            fontWeight: FontWeight.w700,
-            color: const Color(0xFF0B101B),
-          ),
+        title: AppText(
+          txt: 'Set Reminder',
+          fontSize: AppFontSize.f22,
+          fontWeight: FontWeight.w700,
         ),
       ),
       body: SafeArea(
@@ -100,7 +102,7 @@ class _Body extends StatelessWidget {
                   fillColor: kFill,
                 ),
 
-                SizedBox(height: 3.0.h),
+                SizedBox(height: ch(72)),
 
                 GradientButton(
                   label: 'Continue',
