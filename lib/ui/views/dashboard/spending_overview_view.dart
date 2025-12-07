@@ -132,22 +132,6 @@ class _Body extends StatelessWidget {
                       text: "View Details",
                       borderColor: kLightBlue,
                     ),
-                    // OutlinedButton(
-                    //   style: OutlinedButton.styleFrom(
-                    //     side: const BorderSide(color: kLightBlue, width: 1.6),
-                    //     shape: RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(28),
-                    //     ),
-                    //     foregroundColor: kLightBlue,
-                    //     textStyle: TextStyle(
-                    //       fontWeight: FontWeight.w700,
-                    //       fontSize: 11.sp,
-                    //     ),
-                    //     padding: EdgeInsets.symmetric(vertical: 1.8.h),
-                    //   ),
-                    //   onPressed: () {},
-                    //   child: const Text('View Details'),
-                    // ),
                   ),
                   SizedBox(width: 3.6.w),
                   Expanded(

@@ -15,6 +15,7 @@ class GradientButton extends StatelessWidget {
   final Gradient? gradient;
   final FontWeight? fontWeight;
   final double? fontSize;
+  final double? width;
 
   const GradientButton({
     super.key,
@@ -27,6 +28,7 @@ class GradientButton extends StatelessWidget {
     this.gradient,
     this.fontWeight,
     this.fontSize,
+    this.width,
   });
 
   @override
@@ -58,6 +60,7 @@ class GradientButton extends StatelessWidget {
             onTap: (loading || onPressed == null) ? null : onPressed,
             child: SizedBox(
               height: safeH,
+              width: width,
               child: Center(
                 child: loading
                     ? const SizedBox(
@@ -81,6 +84,6 @@ class GradientButton extends StatelessWidget {
       ),
     );
 
-    return expand ? SizedBox(width: double.infinity, child: button) : button;
+    return expand ? SizedBox(child: button) : button;
   }
 }

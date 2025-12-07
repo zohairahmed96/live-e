@@ -57,7 +57,7 @@ class AppOutlinedButton extends StatelessWidget {
                     textStyle ??
                     TextStyle(
                       fontSize: fontSize ?? AppFontSize.f14,
-                      color: AppColor.black,
+                      color: AppColor.c3CA4DC,
                       fontFamily: "Poppins",
                       fontWeight: fontWeight ?? FontWeight.w400,
                       decoration: textDecoration ?? TextDecoration.none,

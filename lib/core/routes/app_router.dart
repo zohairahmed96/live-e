@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:liv_e/ui/views/auth/login_view.dart';
 import 'package:liv_e/ui/views/auth/reset_password_view.dart';
+import 'package:liv_e/ui/views/dashboard/detailed_Spending_overview_view.dart';
 import 'package:liv_e/ui/views/dashboard/financial_management_view.dart';
 import 'package:liv_e/ui/views/dashboard/bill_reminders_view.dart';
 import 'package:liv_e/ui/views/dashboard/community_events_view.dart';
@@ -68,6 +69,11 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const BillRemindersView());
       case AppRoutes.setReminder:
         return MaterialPageRoute(builder: (_) => const SetReminderView());
+
+      case AppRoutes.detailedOverView:
+        return MaterialPageRoute(
+          builder: (_) => const DetailedSpendingOverViewView(),
+        );
 
       case AppRoutes.spendingOverview:
         return MaterialPageRoute(builder: (_) => const SpendingOverviewView());
