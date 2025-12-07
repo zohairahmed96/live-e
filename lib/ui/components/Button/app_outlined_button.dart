@@ -20,6 +20,7 @@ class AppOutlinedButton extends StatelessWidget {
     this.buttonColor,
     this.textDecoration,
     this.borderRadius,
+    this.borderGradient,
   }) : super(key: key);
 
   final String? text;
@@ -36,7 +37,7 @@ class AppOutlinedButton extends StatelessWidget {
   final double? borderRadius;
   final Color? buttonColor;
   final TextDecoration? textDecoration;
-
+  final LinearGradient? borderGradient;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -57,7 +58,7 @@ class AppOutlinedButton extends StatelessWidget {
                     TextStyle(
                       fontSize: fontSize ?? AppFontSize.f14,
                       color: AppColor.black,
-                      fontFamily: "Gotham",
+                      fontFamily: "Poppins",
                       fontWeight: fontWeight ?? FontWeight.w400,
                       decoration: textDecoration ?? TextDecoration.none,
                     ),

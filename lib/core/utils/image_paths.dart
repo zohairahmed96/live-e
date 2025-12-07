@@ -24,8 +24,8 @@ class ImagePaths {
   static const notification = '${base}notification.png';
   static const privacy = '${base}privacy.png';
   static const logout = '${base}logout.png';
-  // static const apple = '${base}apple.png';
-  // static const resendEmail = '${base}resendEmail.png';
+  static const buddy = '${base}ic_buddy.png';
+  static const googleMap = '${base}ic_google_map.png';
   // static const peopleIcon = '${base}peopleIcon.png';
   // static const features2 = '${base}features2.jpg';
 }

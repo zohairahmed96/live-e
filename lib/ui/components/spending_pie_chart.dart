@@ -1,6 +1,7 @@
 // spending_pie_chart.js
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
 import 'package:liv_e/core/utils/helper/color.utils.dart';
 import 'package:sizer/sizer.dart';
 
@@ -18,11 +19,11 @@ class SpendingPieChartFL extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = 38.w;
+    final size = cw(180);
 
     return SizedBox(
-      width: size,
-      height: size,
+      width: cw(150),
+      height: ch(217),
       child: PieChart(
         PieChartData(
           // Reintroducing sectionsSpace to create gaps between slices

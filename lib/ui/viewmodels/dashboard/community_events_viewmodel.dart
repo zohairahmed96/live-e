@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CommunityEventsViewModel extends ChangeNotifier {
   // static demo data – baad mein API se laa sakte ho
-  final String communityTitle = 'Community Resources';
+  final String communityTitle = 'Community Resources Massey';
   final String communitySub = 'Massey';
   final String communityDesc = 'Lorem ipsum is simply dummy text';
 

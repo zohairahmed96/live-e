@@ -40,15 +40,17 @@ class BlueCalendar extends StatelessWidget {
     final rows = (cells / 7).ceil();
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: cw(19), vertical: ch(18)),
+      padding: EdgeInsets.symmetric(horizontal: cw(17.8), vertical: ch(18)),
       decoration: BoxDecoration(
         color: kBlue,
         borderRadius: BorderRadius.circular(14),
       ),
+      width: cw(370),
       child: Column(
         children: [
           // Top row (year, month, calendar icon)
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               AppText(
                 txt: '${month.year}',
@@ -56,15 +58,6 @@ class BlueCalendar extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 fontSize: AppFontSize.f14,
               ),
-              // Text(
-              //   '${month.year}',
-              //   style: TextStyle(
-              //     color: Colors.white,
-              //     fontWeight: FontWeight.w700,
-              //     fontSize: 11.sp,
-              //   ),
-              // ),
-              const Spacer(),
               AppText(
                 txt: _monthName(month.month).toUpperCase(),
                 color: AppColor.white,
@@ -72,16 +65,6 @@ class BlueCalendar extends StatelessWidget {
                 fontSize: AppFontSize.f14,
                 wordspacing: 2,
               ),
-              // Text(
-              //   _monthName(month.month).toUpperCase(),
-              //   style: TextStyle(
-              //     color: Colors.white,
-              //     fontWeight: FontWeight.w700,
-              //     letterSpacing: 2,
-              //     fontSize: 10.sp,
-              //   ),
-              // ),
-              const Spacer(),
               const Icon(
                 Icons.calendar_today_rounded,
                 color: Colors.white,
@@ -93,7 +76,6 @@ class BlueCalendar extends StatelessWidget {
 
           // Weekday header (white tabs)
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(
                 onPressed: onPrev,
@@ -104,31 +86,30 @@ class BlueCalendar extends StatelessWidget {
                 ),
               ),
 
-              Container(
-                decoration: BoxDecoration(
-                  color: AppColor.white,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(7, (i) {
-                    return Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 1.w,
-                        vertical: .4.h,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: AppText(
+              Expanded(
+                // ← FIX: let the weekday capsule take dynamic width
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: cw(8),
+                    vertical: ch(8),
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColor.white,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Row(
+                    mainAxisAlignment:
+                        MainAxisAlignment.spaceBetween, // evenly spaced
+                    children: List.generate(7, (i) {
+                      return AppText(
                         txt: _weekdayLabels[i],
                         color: AppColor.c1B1B1B,
                         fontWeight: FontWeight.w700,
                         wordspacing: 2,
                         fontSize: AppFontSize.f11,
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+                  ),
                 ),
               ),
 

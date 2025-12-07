@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
 import 'package:liv_e/core/utils/helper/color.utils.dart';
 import 'package:liv_e/core/utils/helper/font_size.dart';
+import 'package:liv_e/ui/components/Button/app_outlined_button.dart';
 import 'package:liv_e/ui/components/app_text.dart';
 import 'package:liv_e/ui/components/spending_pie_chart.dart';
 import 'package:liv_e/ui/viewmodels/dashboard/spending_overview_viewmodel.dart';
@@ -56,82 +57,104 @@ class _Body extends StatelessWidget {
       body: SafeArea(
         top: false,
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
+          padding: EdgeInsets.symmetric(horizontal: cw(30)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // pie + legend (legend right, aligned like mock)
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SpendingPieChartFL(slices: vm.slices),
-                  SizedBox(width: 4.w),
-                  _LegendFL(slices: vm.slices),
+                  Padding(
+                    padding: EdgeInsets.only(top: 30),
+                    child: SpendingPieChartFL(slices: vm.slices),
+                  ),
+                  SizedBox(width: cw(34)),
+                  Padding(
+                    padding: EdgeInsets.only(top: ch(108)),
+                    child: _LegendFL(slices: vm.slices),
+                  ),
                 ],
               ),
               SizedBox(height: 2.0.h),
 
               // stats card
               Container(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 3.6.w,
-                  vertical: 1.6.h,
-                ),
+                width: cw(370),
+                height: ch(161),
+                padding: EdgeInsets.symmetric(horizontal: cw(14)),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColor.c3CA4DC.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: const Color(0x14000000)),
+                  // border: Border.all(color: AppColor.c3CA4DC),
                 ),
                 child: Column(
                   children: [
-                    _bluePillRow(
-                      'Total Spent',
-                      '\$${vm.totalSpent.toStringAsFixed(0)}',
+                    SizedBox(height: ch(20)),
+                    _rowKV(
+                      k: 'Total Spent',
+                      v: '\$${vm.totalSpent.toStringAsFixed(0)}',
                     ),
-                    SizedBox(height: 1.2.h),
+                    SizedBox(height: ch(12)),
+                    // SizedBox(height: 1.2.h),
+                    Divider(
+                      color: AppColor.c3CA4DC.withOpacity(0.4),
+                      indent: cw(2),
+                      endIndent: cw(2),
+                    ),
+                    // SizedBox(height: ch(12)),
+                    _rowKV(
+                      k: 'Budget Goal',
+                      v: '\$${vm.budgetGoal.toStringAsFixed(0)}',
+                      isBudget: true,
+                      progress: vm.progress,
+                    ),
+                    Divider(
+                      color: AppColor.c3CA4DC.withOpacity(0.4),
+                      indent: cw(2),
+                      endIndent: cw(2),
+                    ),
 
                     _rowKV(
-                      'Budget Goal',
-                      '\$${vm.budgetGoal.toStringAsFixed(0)}',
+                      k: 'Remaining',
+                      v: '\$${vm.remaining.toStringAsFixed(0)}',
                     ),
-                    SizedBox(height: .8.h),
-                    _budgetBar(vm.progress),
-                    SizedBox(height: 1.2.h),
-
-                    _rowKV('Remaining', '\$${vm.remaining.toStringAsFixed(0)}'),
                   ],
                 ),
               ),
 
-              SizedBox(height: 2.0.h),
+              SizedBox(height: ch(29)),
 
               Row(
                 children: [
                   Expanded(
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(color: kLightBlue, width: 1.6),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(28),
-                        ),
-                        foregroundColor: kLightBlue,
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 11.sp,
-                        ),
-                        padding: EdgeInsets.symmetric(vertical: 1.8.h),
-                      ),
-                      onPressed: () {},
-                      child: const Text('View Details'),
+                    child: AppOutlinedButton(
+                      onPressed: () => {},
+                      text: "View Details",
+                      borderColor: kLightBlue,
                     ),
+                    // OutlinedButton(
+                    //   style: OutlinedButton.styleFrom(
+                    //     side: const BorderSide(color: kLightBlue, width: 1.6),
+                    //     shape: RoundedRectangleBorder(
+                    //       borderRadius: BorderRadius.circular(28),
+                    //     ),
+                    //     foregroundColor: kLightBlue,
+                    //     textStyle: TextStyle(
+                    //       fontWeight: FontWeight.w700,
+                    //       fontSize: 11.sp,
+                    //     ),
+                    //     padding: EdgeInsets.symmetric(vertical: 1.8.h),
+                    //   ),
+                    //   onPressed: () {},
+                    //   child: const Text('View Details'),
+                    // ),
                   ),
                   SizedBox(width: 3.6.w),
                   Expanded(
                     child: GradientButton(
                       label: 'Set New Budget',
                       onPressed: () {},
-                      height: 6.0.h,
+                      height: ch(54),
                       gradient: const LinearGradient(
                         colors: [kLightBlue, kDarkBlue],
                         begin: Alignment.centerLeft,
@@ -148,92 +171,59 @@ class _Body extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _budgetBar(double progress) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(100),
-      child: SizedBox(
-        height: 1.6.h,
-        child: Stack(
-          children: [
-            Container(color: const Color(0xFFE9EEF8)),
-            FractionallySizedBox(
-              alignment: Alignment.centerLeft,
-              widthFactor: progress,
-              child: Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color(0xFF3CA4DC), Color(0xFF76B8F0)],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _bluePillRow(String k, String v) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 3.2.w, vertical: 1.2.h),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(colors: [kLightBlue, kDarkBlue]),
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Row(
+Widget _rowKV({
+  required String k,
+  required String v,
+  bool isBudget = false,
+  double progress = 0,
+}) {
+  return Column(
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: Text(
-              k,
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-                fontSize: 10.5.sp,
-              ),
-            ),
+          AppText(
+            txt: k,
+            fontSize: AppFontSize.f16,
+            fontWeight: FontWeight.w500,
           ),
-          Text(
-            v,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
-              fontSize: 10.5.sp,
-            ),
+          AppText(
+            txt: v,
+            fontSize: AppFontSize.f16,
+            fontWeight: FontWeight.w500,
           ),
         ],
       ),
-    );
-  }
-}
-
-Widget _rowKV(String k, String v, {Color? accentDot}) {
-  return Row(
-    children: [
-      if (accentDot != null) ...[
-        Container(
-          width: 8,
-          height: 8,
-          decoration: BoxDecoration(color: accentDot, shape: BoxShape.circle),
-        ),
-        SizedBox(width: 2.w),
-      ],
-      Expanded(
-        child: Text(
-          k,
-          style: const TextStyle(
-            color: Colors.black87,
-            fontWeight: FontWeight.w600,
+      if (isBudget == true) ...[
+        SizedBox(height: ch(12)),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: SizedBox(
+            height: ch(8),
+            width: cw(341), // optional width (recommended)
+            child: Stack(
+              children: [
+                Container(color: const Color(0xFFE9EEF8)),
+                FractionallySizedBox(
+                  alignment: Alignment.centerLeft,
+                  widthFactor: (progress ?? 0).clamp(0.0, 1.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color(0xFF3CA4DC), Color(0xFF76B8F0)],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-      Text(
-        v,
-        style: const TextStyle(
-          color: Colors.black87,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+        SizedBox(height: ch(12)),
+      ],
     ],
   );
 }
@@ -258,22 +248,15 @@ class _LegendFL extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                width: 15,
-                height: 15,
+                width: cw(19),
+                height: cw(19),
                 decoration: BoxDecoration(
                   color: s.color,
                   borderRadius: BorderRadius.circular(4),
                 ),
               ),
-              SizedBox(width: 3.w),
-              Text(
-                s.label,
-                style: const TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                ),
-              ),
+              SizedBox(width: cw(7)),
+              AppText(txt: s.label, fontWeight: FontWeight.w600),
             ],
           ),
         );

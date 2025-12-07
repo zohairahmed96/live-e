@@ -5,6 +5,6 @@ class LogoVM {
   Future<void> init(BuildContext context) async {
     await Future.delayed(const Duration(milliseconds: 1000));
     // Navigator.pushReplacementNamed(context, AppRoutes.welcome);
-    Navigator.pushNamed(context, AppRoutes.spendingOverview);
+    Navigator.pushNamed(context, AppRoutes.communityEvents);
   }
 }
