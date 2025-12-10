@@ -10,6 +10,7 @@ class TextFieldCommon extends StatelessWidget {
   final bool readOnly;
   final VoidCallback? onTap;
   final Color? fillColor;
+  final BorderRadius? borderRadius;
 
   const TextFieldCommon({
     super.key,
@@ -22,6 +23,7 @@ class TextFieldCommon extends StatelessWidget {
     this.readOnly = false,
     this.onTap,
     this.fillColor,
+    this.borderRadius,
   });
 
   @override
@@ -43,7 +45,7 @@ class TextFieldCommon extends StatelessWidget {
           horizontal: 16,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: borderRadius ?? BorderRadius.circular(25),
           borderSide: BorderSide.none,
         ),
       ),
