@@ -27,6 +27,7 @@ class AppRoutes {
   static const communityEvents = '/community-events';
   static const detailedOverView = '/detailed-overview';
   static const setNewBudget = '/set-new-budget'; // TODO
+  static const talkTree = '/talk-tree';
 
   // Settings
   static const settings = '/settings';

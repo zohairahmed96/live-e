@@ -26,6 +26,9 @@ class ImagePaths {
   static const logout = '${base}logout.png';
   static const buddy = '${base}ic_buddy.png';
   static const googleMap = '${base}ic_google_map.png';
-  // static const peopleIcon = '${base}peopleIcon.png';
-  // static const features2 = '${base}features2.jpg';
+  static const smile = '${base}smile.png';
+  static const normal = '${base}normal.png';
+  static const sad = '${base}sad.png';
+  static const growingTree = '${base}growingTree.png';
+  static const settingsIcons = '${base}settingsIcon.png';
 }

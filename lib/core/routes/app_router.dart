@@ -8,6 +8,7 @@ import 'package:liv_e/ui/views/dashboard/community_events_view.dart';
 import 'package:liv_e/ui/views/dashboard/set_new_budget_view.dart';
 import 'package:liv_e/ui/views/dashboard/set_reminder_view.dart';
 import 'package:liv_e/ui/views/dashboard/spending_overview_view.dart';
+import 'package:liv_e/ui/views/dashboard/talk_tree_view.dart';
 import 'package:liv_e/ui/views/dashboard/transport_assistance_view.dart';
 import 'package:liv_e/ui/views/profile/edit_profile_view.dart';
 import 'package:liv_e/ui/views/settings/privacy_policy_view.dart';
@@ -78,6 +79,8 @@ class AppRouter {
 
       case AppRoutes.setNewBudget:
         return MaterialPageRoute(builder: (_) => const SetNewBudgetView());
+      case AppRoutes.talkTree:
+        return MaterialPageRoute(builder: (_) => const TalkTreeView());
 
       case AppRoutes.spendingOverview:
         return MaterialPageRoute(builder: (_) => const SpendingOverviewView());
