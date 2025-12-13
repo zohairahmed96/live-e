@@ -28,6 +28,7 @@ class AppRoutes {
   static const detailedOverView = '/detailed-overview';
   static const setNewBudget = '/set-new-budget'; // TODO
   static const talkTree = '/talk-tree';
+  static const moodMirror = '/mood-mirro';
 
   // Settings
   static const settings = '/settings';
