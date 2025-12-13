@@ -5,6 +5,7 @@ import 'package:liv_e/core/utils/helper/color.utils.dart';
 import 'package:liv_e/core/utils/helper/font_size.dart';
 import 'package:liv_e/core/utils/image_paths.dart';
 import 'package:liv_e/ui/components/app_text.dart';
+import 'package:liv_e/ui/views/profile/custom_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -34,22 +35,20 @@ class _ProfileBody extends StatelessWidget {
       backgroundColor: const Color(0xFFF9FAFB),
       appBar: AppBar(
         elevation: 0,
+        toolbarHeight: ch(80),
         backgroundColor: const Color(0xFFE8F3FF), // light blue like mock
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.black87,
+            color: AppColor.c3CA4DC,
           ),
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text(
-          'Profile',
-          style: TextStyle(
-            fontSize: 14.sp,
-            fontWeight: FontWeight.w700,
-            color: const Color(0xFF0B101B),
-          ),
+        title: AppText(
+          txt: 'Profile',
+          fontSize: AppFontSize.f22,
+          fontWeight: FontWeight.w600,
         ),
       ),
 
@@ -103,6 +102,7 @@ class _ProfileBody extends StatelessWidget {
                   // onPressed: () => vm.editProfile(context),
                   expand: false,
                   height: 5.2.h,
+                  fontSize: AppFontSize.f18,
                   onPressed: () {
                     Navigator.pushNamed(context, AppRoutes.dailyRoutine);
                   },
@@ -117,9 +117,9 @@ class _ProfileBody extends StatelessWidget {
                   padding: EdgeInsets.only(left: .4.w),
                   child: AppText(
                     txt: 'Settings',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w400,
                     fontSize: AppFontSize.f20,
-                    color: AppColor.black,
+                    color: AppColor.black.withOpacity(0.5),
                   ),
                 ),
               ),
@@ -130,11 +130,11 @@ class _ProfileBody extends StatelessWidget {
                 width: double.infinity,
                 margin: EdgeInsets.only(bottom: 3.h),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColor.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black12.withOpacity(.06),
+                      color: AppColor.black.withOpacity(.06),
                       blurRadius: 12,
                       offset: const Offset(0, 6),
                     ),
@@ -142,6 +142,7 @@ class _ProfileBody extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
+                    SizedBox(height: ch(27)),
                     _rowSwitch(
                       context,
                       icon: ImagePaths.location,
@@ -151,7 +152,9 @@ class _ProfileBody extends StatelessWidget {
                       onChanged: vm.toggleLocation,
                       isSwitch: true,
                     ),
+                    SizedBox(height: ch(13)),
                     _thinDivider(),
+                    SizedBox(height: ch(20)),
                     _rowSwitch(
                       context,
                       icon: ImagePaths.privacy,
@@ -161,7 +164,9 @@ class _ProfileBody extends StatelessWidget {
                       onChanged: vm.togglePrivacy,
                       isSwitch: true,
                     ),
+                    SizedBox(height: ch(13)),
                     _thinDivider(),
+                    SizedBox(height: ch(20)),
                     _rowSwitch(
                       context,
                       icon: ImagePaths.notification,
@@ -171,9 +176,10 @@ class _ProfileBody extends StatelessWidget {
                       onChanged: vm.toggleNotifications,
                       isSwitch: true,
                     ),
-
+                    SizedBox(height: ch(13)),
                     // Logout row (no trailing chevron per mock)
                     _thinDivider(),
+                    SizedBox(height: ch(20)),
                     _rowSwitch(
                       context,
                       icon: ImagePaths.logout,
@@ -183,34 +189,7 @@ class _ProfileBody extends StatelessWidget {
                       onChanged: vm.toggleNotifications,
                       isSwitch: false,
                     ),
-
-                    // InkWell(
-                    //   onTap: () {
-                    //     Navigator.pushNamed(context, AppRoutes.notifications);
-                    //   },
-                    //   child: Container(
-                    //     height: 7.h,
-                    //     padding: EdgeInsets.symmetric(horizontal: cw(20)),
-                    //     child: Row(
-                    //       children: [
-                    //         _iconBadge(
-                    //           ImagePaths.logout,
-                    //           const Color(0xFFFFEBEE),
-                    //           const Color(0xFFE53935),
-                    //         ),
-                    //         SizedBox(width: 3.6.w),
-                    //         Text(
-                    //           'Logout',
-                    //           style: TextStyle(
-                    //             color: const Color(0xFFE53935),
-                    //             fontWeight: FontWeight.w600,
-                    //             fontSize: 11.sp,
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
+                    SizedBox(height: ch(28)),
                   ],
                 ),
               ),
@@ -233,7 +212,6 @@ class _ProfileBody extends StatelessWidget {
     required bool isSwitch,
   }) {
     return SizedBox(
-      height: 7.h, // fixed row height for consistent spacing like mock
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: cw(20)),
         child: Row(
@@ -250,11 +228,7 @@ class _ProfileBody extends StatelessWidget {
               ),
             ),
             isSwitch
-                ? Switch.adaptive(
-                    value: value,
-                    onChanged: onChanged,
-                    activeColor: AppColor.c3CA4DC,
-                  )
+                ? CustomSwitch(value: value, onChanged: onChanged)
                 : SizedBox.shrink(),
           ],
         ),

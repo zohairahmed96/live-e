@@ -24,7 +24,7 @@ class NotificationTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColor.c3CA4DC.withOpacity(0.1),
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppColor.c3CA4DC),
+        border: Border.all(color: AppColor.c3CA4DC.withOpacity(0.2)),
         boxShadow: [
           BoxShadow(
             color: Colors.black12.withOpacity(.05),
@@ -77,7 +77,7 @@ class NotificationTile extends StatelessWidget {
             txt: item.time,
             fontWeight: FontWeight.w500,
             fontSize: AppFontSize.f16,
-            color: AppColor.c2D6DD6,
+            color: AppColor.c3CA4DC,
           ),
         ],
       ),

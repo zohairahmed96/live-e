@@ -100,7 +100,7 @@ class _DetailedSpendingOverViewBody extends StatelessWidget {
                         AppButton(
                           onPressed: () {},
                           height: ch(31),
-                          width: cw(155),
+                          width: cw(181),
                           text: "This Month",
                           borderRadius: 4,
                           buttonColor: AppColor.cE4F6FF,
@@ -110,7 +110,7 @@ class _DetailedSpendingOverViewBody extends StatelessWidget {
                         AppButton(
                           onPressed: () {},
                           height: ch(31),
-                          width: cw(155),
+                          width: cw(181),
                           text: "Last Week",
                           borderRadius: 4,
                           buttonColor: AppColor.cE4F6FF,
@@ -131,15 +131,15 @@ class _DetailedSpendingOverViewBody extends StatelessWidget {
                     text: "Set New Budget",
                     borderColor: AppColor.c3CA4DC,
                     fontSize: AppFontSize.f16,
-                    width: cw(161),
+                    width: cw(180),
                   ),
-                  SizedBox(width: 3.6.w),
+                  SizedBox(width: cw(10)),
                   // AppButton(onPressed: () {}, text: "", width: cw(141)),
                   GradientButton(
                     label: 'Back to Overview',
                     onPressed: () {},
                     height: ch(54),
-                    width: cw(161),
+                    width: cw(180),
                     fontSize: AppFontSize.f16,
                     gradient: const LinearGradient(
                       colors: [AppColor.c3CA4DC, AppColor.c334EA0],
@@ -190,10 +190,10 @@ Widget _customCard({String? text, String? amount, int? budgetProgress}) {
             left: cw(12),
             right: cw(12),
             top: cw(10),
+            bottom: ch(17),
             // vertical: ch(27),
           ),
           width: cw(370),
-          height: ch(67),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),

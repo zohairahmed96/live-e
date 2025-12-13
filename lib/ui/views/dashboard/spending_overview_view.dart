@@ -75,12 +75,10 @@ class _Body extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 2.0.h),
-
+              SizedBox(height: ch(49)),
               // stats card
               Container(
                 width: cw(370),
-                height: ch(161),
                 padding: EdgeInsets.symmetric(horizontal: cw(14)),
                 decoration: BoxDecoration(
                   color: AppColor.c3CA4DC.withOpacity(0.2),
@@ -94,7 +92,6 @@ class _Body extends StatelessWidget {
                       k: 'Total Spent',
                       v: '\$${vm.totalSpent.toStringAsFixed(0)}',
                     ),
-                    SizedBox(height: ch(12)),
                     // SizedBox(height: 1.2.h),
                     Divider(
                       color: AppColor.c3CA4DC.withOpacity(0.4),
@@ -118,6 +115,7 @@ class _Body extends StatelessWidget {
                       k: 'Remaining',
                       v: '\$${vm.remaining.toStringAsFixed(0)}',
                     ),
+                    SizedBox(height: ch(22)),
                   ],
                 ),
               ),
@@ -130,6 +128,8 @@ class _Body extends StatelessWidget {
                     child: AppOutlinedButton(
                       onPressed: () => {},
                       text: "View Details",
+                      fontSize: AppFontSize.f16,
+                      width: cw(180),
                       borderColor: kLightBlue,
                     ),
                   ),
@@ -139,6 +139,8 @@ class _Body extends StatelessWidget {
                       label: 'Set New Budget',
                       onPressed: () {},
                       height: ch(54),
+                      width: cw(180),
+                      fontSize: AppFontSize.f16,
                       gradient: const LinearGradient(
                         colors: [kLightBlue, kDarkBlue],
                         begin: Alignment.centerLeft,

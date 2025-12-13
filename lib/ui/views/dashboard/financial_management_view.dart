@@ -211,9 +211,8 @@ class _FinancialBody extends StatelessWidget {
                           AppText(
                             txt:
                                 "Lorem Ipsum is simply dummy text of the printing & typesetting",
-                            overFlow: TextOverflow.ellipsis,
                             fontSize: AppFontSize.f11,
-                            maxLines: 3,
+                            overFlow: TextOverflow.ellipsis,
                             height: 1.4,
                           ),
                         ],
@@ -240,7 +239,7 @@ class _FinancialBody extends StatelessWidget {
 
 Widget _customCard(double w, double h, String text, Widget? widget) {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: cw(30)),
+    padding: EdgeInsets.only(left: cw(30)),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -260,7 +259,7 @@ Widget _customCard(double w, double h, String text, Widget? widget) {
           width: w,
           height: h,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColor.white,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: AppColor.cE4E4E4),
           ),

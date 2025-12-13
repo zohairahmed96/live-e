@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
 import 'package:liv_e/core/utils/helper/color.utils.dart';
 import 'package:liv_e/core/utils/helper/font_size.dart';
 import 'package:liv_e/ui/components/app_text.dart';
@@ -18,8 +19,8 @@ class LightBlueButton extends StatelessWidget {
     final bg = const Color(0xFFE4F6FF); // #E4F6FF
     final fg = const Color(0xFF3CA4DC); // #3CA4DC
     return SizedBox(
-      width: double.infinity,
-      height: 6.2.h,
+      width: cw(370),
+      height: ch(58),
       child: TextButton(
         style: TextButton.styleFrom(
           backgroundColor: bg,

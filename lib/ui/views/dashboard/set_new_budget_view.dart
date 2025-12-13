@@ -196,7 +196,7 @@ class _SetNewBudgetViewModelBody extends StatelessWidget {
                     text: "Cancel",
                     borderColor: AppColor.c3CA4DC,
                     fontSize: AppFontSize.f16,
-                    width: cw(161),
+                    width: cw(180),
                     height: ch(54),
                   ),
                   SizedBox(width: cw(10)),
@@ -205,7 +205,7 @@ class _SetNewBudgetViewModelBody extends StatelessWidget {
                     label: 'Save Budget',
                     onPressed: () {},
                     height: ch(54),
-                    width: cw(161),
+                    width: cw(180),
                     fontSize: AppFontSize.f16,
                     gradient: const LinearGradient(
                       colors: [AppColor.c3CA4DC, AppColor.c334EA0],
@@ -249,7 +249,7 @@ Widget _categoryRow({
                 TextFieldCommon(
                   controller: ctrl!,
                   hint: "Amount",
-                  label: "Amount",
+                  label: "",
                   fillColor: const Color(0xFFE4F6FF),
                   keyboardType: TextInputType.number,
                   borderRadius: BorderRadius.circular(8),

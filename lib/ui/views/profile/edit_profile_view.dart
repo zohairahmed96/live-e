@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:liv_e/core/routes/app_routes.dart';
 import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
 import 'package:liv_e/core/utils/helper/color.utils.dart';
+import 'package:liv_e/core/utils/helper/font_size.dart';
 import 'package:liv_e/core/utils/image_paths.dart';
 import 'package:liv_e/ui/components/Button/gradient_button.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:liv_e/ui/viewmodels/profile/edit_profile_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -56,23 +58,21 @@ class _EditBody extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const Color(0xFFE8F3FF), // header light blue
+        toolbarHeight: ch(80),
         elevation: 0,
+        backgroundColor: AppColor.cE4F6FF,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.black87,
+            color: AppColor.c3CA4DC,
           ),
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text(
-          'Edit Profile',
-          style: TextStyle(
-            fontSize: 14.5.sp,
-            fontWeight: FontWeight.w700,
-            color: const Color(0xFF0B101B),
-          ),
+        title: AppText(
+          txt: 'Edit Profile',
+          fontSize: AppFontSize.f22,
+          fontWeight: FontWeight.w600,
         ),
       ),
       body: SafeArea(
@@ -83,15 +83,14 @@ class _EditBody extends StatelessWidget {
             key: vm.formKey,
             child: Column(
               children: [
-                SizedBox(height: 3.h),
-
+                SizedBox(height: ch(20)),
                 // Avatar with camera badge
                 Stack(
                   alignment: Alignment.bottomRight,
                   children: [
                     Container(
-                      width: 14.h,
-                      height: 14.h,
+                      width: ch(111),
+                      height: ch(111),
                       decoration: const BoxDecoration(
                         color: Color(0xFFEAF6FF),
                         shape: BoxShape.circle,
@@ -100,8 +99,8 @@ class _EditBody extends StatelessWidget {
                       child: vm.photoPath == null
                           ? Image.asset(
                               ImagePaths.peopleIconBlue,
-                              width: cw(101),
-                              height: ch(101),
+                              width: cw(47),
+                              height: ch(57),
                             )
                           : Image.file(File(vm.photoPath!), fit: BoxFit.cover),
                     ),
@@ -124,77 +123,66 @@ class _EditBody extends StatelessWidget {
                   ],
                 ),
 
-                SizedBox(height: 1.6.h),
+                SizedBox(height: ch(14)),
 
                 // Name + email preview (bold + grey)
-                Text(
-                  'Jill Powell',
-                  style: TextStyle(
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.w700,
-                    color: const Color(0xFF0B101B),
-                  ),
+                AppText(
+                  txt: ' Jill Powell',
+                  fontSize: AppFontSize.f24,
+                  fontWeight: FontWeight.w600,
                 ),
-                SizedBox(height: .6.h),
-                Text(
-                  'ex@example.com',
-                  style: TextStyle(color: Colors.black45, fontSize: 10.sp),
+                SizedBox(height: ch(6)),
+                AppText(
+                  txt: 'ex@example.com',
+                  fontSize: AppFontSize.f18,
+                  color: AppColor.black.withOpacity(0.6),
                 ),
 
-                SizedBox(height: 2.2.h),
+                SizedBox(height: ch(17)),
 
                 // Fields (light blue filled, rounded)
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Full Name',
-                    style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 10.sp,
-                    ),
+                  child: AppText(
+                    txt: 'Full Name',
+                    fontSize: AppFontSize.f16,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(height: .6.h),
+                SizedBox(height: ch(8)),
                 TextFormField(
                   controller: vm.nameCtrl,
                   validator: (v) => vm.notEmpty(v, 'full name'),
                   decoration: _blueFill(''),
                 ),
-                SizedBox(height: 1.6.h),
+                SizedBox(height: ch(14)),
 
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Email Address',
-                    style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 10.sp,
-                    ),
+                  child: AppText(
+                    txt: 'Email Address',
+                    fontSize: AppFontSize.f16,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(height: .6.h),
+                SizedBox(height: ch(8)),
                 TextFormField(
                   controller: vm.emailCtrl,
                   keyboardType: TextInputType.emailAddress,
                   validator: vm.emailValidator,
                   decoration: _blueFill(''),
                 ),
-                SizedBox(height: 1.6.h),
+                SizedBox(height: ch(8)),
 
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Age',
-                    style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 10.sp,
-                    ),
+                  child: AppText(
+                    txt: 'Age',
+                    fontSize: AppFontSize.f16,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(height: .6.h),
+                SizedBox(height: ch(8)),
                 TextFormField(
                   controller: vm.ageCtrl,
                   keyboardType: TextInputType.number,
@@ -206,17 +194,13 @@ class _EditBody extends StatelessWidget {
                   },
                   decoration: _blueFill(''),
                 ),
-                SizedBox(height: 1.6.h),
-
+                SizedBox(height: ch(14)),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Disability',
-                    style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 10.sp,
-                    ),
+                  child: AppText(
+                    txt: 'Disability',
+                    fontSize: AppFontSize.f16,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 SizedBox(height: .6.h),
@@ -225,10 +209,11 @@ class _EditBody extends StatelessWidget {
                   decoration: _blueFill(''),
                 ),
 
-                SizedBox(height: 3.0.h),
+                SizedBox(height: ch(57)),
 
                 // Save button (full width gradient)
                 GradientButton(
+                  width: cw(372),
                   label: 'Save',
                   loading: vm.saving,
                   onPressed: () => {
