@@ -39,4 +39,10 @@ class ImagePaths {
   static const uplifiting = '${base}uplifiting.png';
   static const journaling = '${base}journaling.png';
   static const caregiver = '${base}caregiver.png';
+  static const disable = '${base}disable.png';
+  static const calender = '${base}calender.png';
+  static const phone = '${base}phone.png';
+  // static const journaling = '${base}journaling.png';
+  // static const caregiver = '${base}caregiver.png';
+  // static const disable = '${base}disable.png';
 }

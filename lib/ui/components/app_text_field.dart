@@ -54,8 +54,8 @@ class _AppTextFieldState extends State<AppTextField> {
           child: widget.prefix,
         ),
         prefixIconConstraints: BoxConstraints(
-          maxWidth: cw(27),
-          maxHeight: cw(27),
+          maxWidth: cw(32),
+          maxHeight: cw(32),
         ),
         // Password eye
         suffixIcon: widget.isPassword

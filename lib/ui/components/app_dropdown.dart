@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
 import 'package:sizer/sizer.dart';
 
 class AppDropdown<T> extends StatelessWidget {
@@ -29,11 +31,21 @@ class AppDropdown<T> extends StatelessWidget {
       onChanged: onChanged,
       validator: validator,
       borderRadius: BorderRadius.circular(16),
-      icon: const Icon(Icons.keyboard_arrow_down_rounded),
+      icon: Icon(Icons.keyboard_arrow_down_rounded, color: AppColor.c3CA4DC),
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
-        prefixIcon: prefix ?? const Icon(Icons.accessibility_new_outlined),
+        prefixIcon: Padding(
+          padding: EdgeInsets.only(left: cw(11.18), right: cw(3)),
+          child: prefix ?? const Icon(Icons.accessibility_new_outlined),
+        ),
+        // prefix ?? const Icon(Icons.accessibility_new_outlined),
+        prefixIconConstraints: BoxConstraints(
+          minWidth: cw(24),
+          minHeight: ch(24),
+          maxWidth: cw(32),
+          maxHeight: ch(32),
+        ),
         filled: true,
         fillColor: Colors.white,
         contentPadding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.8.h),

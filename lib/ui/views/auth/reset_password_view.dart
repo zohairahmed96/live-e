@@ -85,6 +85,7 @@ class _ResetBody extends StatelessWidget {
                     ImagePaths.resendEmail,
                     width: cw(17),
                     height: ch(17),
+                    fit: BoxFit.contain,
                   ),
                   validator: vm.emailValidator,
                 ),

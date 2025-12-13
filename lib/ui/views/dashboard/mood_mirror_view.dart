@@ -61,7 +61,7 @@ class _Body extends StatelessWidget {
               ),
               SizedBox(height: ch(24)),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: cw(30)),
+                padding: EdgeInsets.only(left: cw(30)),
                 child: Row(
                   children: [
                     icon_widget(ImagePaths.happiness, "Emoji"),
@@ -75,7 +75,11 @@ class _Body extends StatelessWidget {
               SizedBox(height: ch(46)),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: cw(29)),
-                child: GradientButton(label: "Reflect Mood", onPressed: () {}),
+                child: GradientButton(
+                  width: cw(372),
+                  label: "Reflect Mood",
+                  onPressed: () {},
+                ),
               ),
             ],
           ),
@@ -88,7 +92,7 @@ class _Body extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: cw(95),
+          width: cw(115),
           height: ch(86),
           decoration: BoxDecoration(
             color: AppColor.cE4F6FF,
