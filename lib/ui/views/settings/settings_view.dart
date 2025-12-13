@@ -7,6 +7,7 @@ import 'package:liv_e/ui/components/app_text.dart';
 import 'package:liv_e/ui/components/font_size_slider.dart';
 import 'package:liv_e/ui/components/settings_row.dart';
 import 'package:liv_e/ui/components/settings_section_card.dart';
+import 'package:liv_e/ui/views/profile/custom_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -88,58 +89,50 @@ class _SettingsBody extends StatelessWidget {
                 // Text('Accessibility', style: sTitle()),
                 SizedBox(height: ch(18)),
                 SettingsSectionCard(
-                  height: ch(170),
                   child: Column(
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: ch(15), bottom: ch(11)),
-                        child: SettingsRow(
-                          title: 'Font Size',
-                          right: const FontSizeSlider(),
-                        ),
+                      SizedBox(height: ch(15)),
+                      SettingsRow(
+                        title: 'Font Size',
+                        right: const FontSizeSlider(),
                       ),
+                      SizedBox(height: ch(11)),
                       const Divider(
                         indent: 14,
                         endIndent: 14,
                         height: 1,
                         color: AppColor.cD7ECF9,
                       ),
+                      SizedBox(height: ch(14)),
                       SettingsRow(
                         title: 'Dark Mode',
                         right: Transform.scale(
                           scale: 0.8,
-                          child: Switch.adaptive(
+                          child: CustomSwitch(
                             value: vm.darkMode,
                             onChanged: vm.toggleDark,
-                            activeColor: AppColor.cE8F3FF,
-                            inactiveTrackColor: AppColor.cC4EBFF,
-                            thumbColor: MaterialStateProperty.all(
-                              AppColor.c3CA4DC,
-                            ),
                           ),
                         ),
                       ),
+                      SizedBox(height: ch(14)),
                       Divider(
                         indent: cw(14),
                         endIndent: cw(14),
                         height: 1,
                         color: AppColor.cD7ECF9,
                       ),
+                      SizedBox(height: ch(14)),
                       SettingsRow(
                         title: 'Text-to-Speech',
                         right: Transform.scale(
                           scale: 0.8,
-                          child: Switch.adaptive(
+                          child: CustomSwitch(
                             value: vm.tts,
                             onChanged: vm.toggleTts,
-                            activeColor: AppColor.c3CA4DC,
-                            inactiveTrackColor: AppColor.cC4EBFF,
-                            thumbColor: MaterialStateProperty.all(
-                              AppColor.c3CA4DC,
-                            ),
                           ),
                         ),
                       ),
+                      SizedBox(height: ch(14)),
                     ],
                   ),
                 ),
@@ -150,37 +143,32 @@ class _SettingsBody extends StatelessWidget {
                 Text('Account Preferences', style: sTitle()),
                 SizedBox(height: ch(18)),
                 SettingsSectionCard(
-                  height: ch(120), // spec: 120px
                   child: Column(
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: ch(21), bottom: ch(17)),
-                        child: SettingsRow(
-                          title: 'Profile Information',
-                          right: Icon(
-                            Icons.chevron_right_rounded,
-                            color: AppColor.c3CA4DC,
-                          ),
+                      SizedBox(height: ch(21)),
+                      SettingsRow(
+                        title: 'Profile Information',
+                        right: Icon(
+                          Icons.chevron_right_rounded,
+                          color: AppColor.c3CA4DC,
                         ),
                       ),
-                      // SettingsNavRow(title: 'Profile Information'),
+                      SizedBox(height: ch(17)),
                       Divider(
                         indent: 14,
                         endIndent: 14,
                         height: 1,
                         color: AppColor.cD7ECF9,
                       ),
-                      // SettingsNavRow(title: 'Caregiver Contact'),
-                      Padding(
-                        padding: EdgeInsets.only(top: ch(17)),
-                        child: SettingsRow(
-                          title: 'Caregiver Contact',
-                          right: Icon(
-                            Icons.chevron_right_rounded,
-                            color: AppColor.c3CA4DC,
-                          ),
+                      SizedBox(height: ch(17)),
+                      SettingsRow(
+                        title: 'Caregiver Contact',
+                        right: Icon(
+                          Icons.chevron_right_rounded,
+                          color: AppColor.c3CA4DC,
                         ),
                       ),
+                      SizedBox(height: ch(22)),
                     ],
                   ),
                 ),
@@ -191,48 +179,45 @@ class _SettingsBody extends StatelessWidget {
                 Text('App Info', style: sTitle()),
                 SizedBox(height: ch(18)),
                 SettingsSectionCard(
-                  height: hp(context, 179), // spec: 179px
                   child: Column(
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: ch(21), bottom: ch(17)),
-                        child: SettingsRow(
-                          title: 'Version Info',
-                          right: Text(
-                            '14.0.0',
-                            style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: const Color(0xFF000000),
-                            ),
+                      SizedBox(height: ch(21)),
+                      SettingsRow(
+                        title: 'Version Info',
+                        right: Text(
+                          '14.0.0',
+                          style: GoogleFonts.poppins(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xFF000000),
                           ),
                         ),
                       ),
+                      SizedBox(height: ch(17)),
                       const Divider(
                         indent: 14,
                         endIndent: 14,
                         height: 1,
                         color: AppColor.cD7ECF9,
                       ),
-
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: ch(17)),
-                        child: SettingsRow(
-                          title: 'Privacy Policy',
-                          right: GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                AppRoutes.privacyPolicy,
-                              );
-                            },
-                            child: Icon(
-                              Icons.chevron_right_rounded,
-                              color: AppColor.c3CA4DC,
-                            ),
+                      SizedBox(height: ch(17)),
+                      SettingsRow(
+                        title: 'Privacy Policy',
+                        right: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              AppRoutes.privacyPolicy,
+                            );
+                          },
+                          child: Icon(
+                            Icons.chevron_right_rounded,
+                            color: AppColor.c3CA4DC,
                           ),
                         ),
                       ),
+                      SizedBox(height: ch(18)),
+
                       const Divider(
                         indent: 14,
                         endIndent: 14,
@@ -240,24 +225,24 @@ class _SettingsBody extends StatelessWidget {
                         color: AppColor.cD7ECF9,
                       ),
                       // const SettingsNavRow(title: 'Feedback Form'),
-                      Padding(
-                        padding: EdgeInsets.only(top: ch(17)),
-                        child: SettingsRow(
-                          title: 'Feedback Form',
-                          right: GestureDetector(
-                            onTap: () {
-                              // Navigator.pushNamed(
-                              //   context,
-                              //   AppRoutes.privacyPolicy,
-                              // );
-                            },
-                            child: Icon(
-                              Icons.chevron_right_rounded,
-                              color: AppColor.c3CA4DC,
-                            ),
+                      SizedBox(height: ch(18)),
+
+                      SettingsRow(
+                        title: 'Feedback Form',
+                        right: GestureDetector(
+                          onTap: () {
+                            // Navigator.pushNamed(
+                            //   context,
+                            //   AppRoutes.privacyPolicy,
+                            // );
+                          },
+                          child: Icon(
+                            Icons.chevron_right_rounded,
+                            color: AppColor.c3CA4DC,
                           ),
                         ),
                       ),
+                      SizedBox(height: ch(18)),
                     ],
                   ),
                 ),

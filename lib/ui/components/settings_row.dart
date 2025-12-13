@@ -23,6 +23,7 @@ class SettingsRow extends StatelessWidget {
       padding: EdgeInsetsGeometry.symmetric(horizontal: cw(16)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AppText(
             txt: title,

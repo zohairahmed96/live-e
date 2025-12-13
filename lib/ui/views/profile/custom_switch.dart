@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liv_e/core/utils/helper/color.utils.dart';
 
 class CustomSwitch extends StatelessWidget {
   final bool value;
@@ -29,8 +30,9 @@ class CustomSwitch extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(height),
           color: value
-              ? const Color(0xFF2D6DD6) // active track
-              : const Color(0xFFDEF5FF), // inactive track
+              ? AppColor
+                    .c3CA4DC // active track
+              : AppColor.cC4EBFF, // inactive track
         ),
         child: AnimatedAlign(
           duration: const Duration(milliseconds: 200),
@@ -43,7 +45,7 @@ class CustomSwitch extends StatelessWidget {
               color: value
                   ? Colors
                         .white // active thumb
-                  : const Color(0xFF3CA4DC), // inactive thumb
+                  : AppColor.c3CA4DC, // inactive thumb
             ),
           ),
         ),

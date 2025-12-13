@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:liv_e/core/utils/helper/app_layout_helper.dart';
 
 class SettingsSectionCard extends StatelessWidget {
-  const SettingsSectionCard({
-    super.key,
-    required this.height,
-    required this.child,
-  });
+  const SettingsSectionCard({super.key, this.height, required this.child});
 
-  final double height;
+  final double? height;
   final Widget child;
 
   static const Color kCard = Color(0xFFE4F6FF);
