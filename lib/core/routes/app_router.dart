@@ -6,6 +6,7 @@ import 'package:liv_e/ui/views/dashboard/financial_management_view.dart';
 import 'package:liv_e/ui/views/dashboard/bill_reminders_view.dart';
 import 'package:liv_e/ui/views/dashboard/community_events_view.dart';
 import 'package:liv_e/ui/views/dashboard/mood_mirror_view.dart';
+import 'package:liv_e/ui/views/dashboard/reflect_mood_views.dart';
 import 'package:liv_e/ui/views/dashboard/set_new_budget_view.dart';
 import 'package:liv_e/ui/views/dashboard/set_reminder_view.dart';
 import 'package:liv_e/ui/views/dashboard/spending_overview_view.dart';
@@ -84,7 +85,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const TalkTreeView());
       case AppRoutes.moodMirror:
         return MaterialPageRoute(builder: (_) => const MoodMirrorView());
-
+      case AppRoutes.reflectMood:
+        return MaterialPageRoute(builder: (_) => const ReflectMoodView());
       case AppRoutes.spendingOverview:
         return MaterialPageRoute(builder: (_) => const SpendingOverviewView());
       case AppRoutes.dailyRoutine:

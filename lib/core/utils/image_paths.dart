@@ -34,4 +34,9 @@ class ImagePaths {
   static const chat = '${base}chat.png';
   static const happiness = '${base}happiness.png';
   static const mic = '${base}mic.png';
+  static const sadness = '${base}sadness.png';
+  static const meditaiton = '${base}meditation.png';
+  static const uplifiting = '${base}uplifiting.png';
+  static const journaling = '${base}journaling.png';
+  static const caregiver = '${base}caregiver.png';
 }

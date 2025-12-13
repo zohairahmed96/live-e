@@ -29,6 +29,7 @@ class AppRoutes {
   static const setNewBudget = '/set-new-budget'; // TODO
   static const talkTree = '/talk-tree';
   static const moodMirror = '/mood-mirro';
+  static const reflectMood = '/reflect-mood';
 
   // Settings
   static const settings = '/settings';
