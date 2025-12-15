@@ -30,6 +30,8 @@ class AppRoutes {
   static const talkTree = '/talk-tree';
   static const moodMirror = '/mood-mirro';
   static const reflectMood = '/reflect-mood';
+  static const mainDashboard = '/main-dashboard';
+  static const liveAssisstant = '/live-assisstant';
 
   // Settings
   static const settings = '/settings';

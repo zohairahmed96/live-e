@@ -2,6 +2,7 @@ import 'package:liv_e/core/utils/helper/color.utils.dart';
 import 'package:liv_e/core/utils/helper/font_size.dart';
 
 import 'package:flutter/material.dart';
+import 'package:liv_e/ui/components/app_text.dart';
 import 'package:sizer/sizer.dart';
 
 class AppButton extends StatelessWidget {
@@ -53,21 +54,13 @@ class AppButton extends StatelessWidget {
         padding: EdgeInsets.zero,
         width: (width ?? 82.93.w),
         height: (height ?? (6.77).h),
-        child: (child != null)
-            ? child
-            : Text(
-                text!,
-                style:
-                    textStyle ??
-                    TextStyle(
-                      fontSize: fontSize ?? AppFontSize.f16,
-                      color: color ?? AppColor.black,
-                      fontFamily: 'Gotham',
-                      fontWeight: fontWeight ?? FontWeight.w400,
-                      decoration: textDecoration ?? TextDecoration.none,
-                    ),
-                textAlign: textAlign ?? TextAlign.center,
-              ),
+        child: AppText(
+          txt: text!,
+          textAlign: textAlign ?? TextAlign.center,
+          fontSize: fontSize ?? AppFontSize.f16,
+          color: color ?? AppColor.white,
+          fontWeight: fontWeight ?? FontWeight.w400,
+        ),
         decoration:
             buttonStyle ??
             BoxDecoration(

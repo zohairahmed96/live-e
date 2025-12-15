@@ -16,7 +16,7 @@ class AppFontSize {
   // static double f30 = 30;
   // static double f30 = 20.sp;
   static double f30 = 25.sp;
-  // static double f27 = 27;
+  static double f28 = 20.sp;
   static double f27 = 18.sp;
   // static double f26 = 26;
   static double f26 = 20.5.sp;

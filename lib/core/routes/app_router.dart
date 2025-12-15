@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:liv_e/ui/views/auth/login_view.dart';
 import 'package:liv_e/ui/views/auth/reset_password_view.dart';
+import 'package:liv_e/ui/views/dashboard/dashboard_main_view.dart';
 import 'package:liv_e/ui/views/dashboard/detailed_Spending_overview_view.dart';
 import 'package:liv_e/ui/views/dashboard/financial_management_view.dart';
 import 'package:liv_e/ui/views/dashboard/bill_reminders_view.dart';
 import 'package:liv_e/ui/views/dashboard/community_events_view.dart';
+import 'package:liv_e/ui/views/dashboard/live_assisstant_view.dart';
 import 'package:liv_e/ui/views/dashboard/mood_mirror_view.dart';
 import 'package:liv_e/ui/views/dashboard/reflect_mood_views.dart';
 import 'package:liv_e/ui/views/dashboard/set_new_budget_view.dart';
@@ -61,6 +63,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ProfileSetupView());
       case AppRoutes.notifications:
         return MaterialPageRoute(builder: (_) => const NotificationsView());
+
+      // Dashboard
+      case AppRoutes.mainDashboard:
+        return MaterialPageRoute(builder: (_) => const DashboardMainView());
       case AppRoutes.transport:
         return MaterialPageRoute(
           builder: (_) => const TransportAssistanceView(),
@@ -69,6 +75,8 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const FinancialManagementView(),
         );
+      case AppRoutes.liveAssisstant:
+        return MaterialPageRoute(builder: (_) => const LifeAssisstantView());
       case AppRoutes.billReminders:
         return MaterialPageRoute(builder: (_) => const BillRemindersView());
       case AppRoutes.setReminder:
